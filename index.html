@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kendy Philippe — Travail social & MEAL</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#EFEDE4;
+    --paper-2:#E7E3D6;
+    --ink:#1E2A38;
+    --ink-soft:#4A5568;
+    --ochre:#B8862B;
+    --teal:#3E6B5C;
+    --line:#D3CDBB;
+    --white:#FBFAF6;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'IBM Plex Sans', sans-serif;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3{
+    font-family:'Lora', serif;
+    font-weight:600;
+    margin:0;
+    color:var(--ink);
+  }
+  a{color:inherit;}
+  .wrap{max-width:920px;margin:0 auto;padding:0 28px;}
+
+  /* Header */
+  header.top{
+    display:flex;justify-content:space-between;align-items:center;
+    padding:22px 28px;max-width:920px;margin:0 auto;
+    font-size:14px;
+  }
+  .mark{font-family:'Lora',serif;font-weight:600;font-size:17px;}
+  nav a{margin-left:22px;text-decoration:none;color:var(--ink-soft);font-size:14px;}
+  nav a:hover{color:var(--teal);}
+
+  /* Hero */
+  .hero{
+    max-width:920px;margin:0 auto;padding:38px 28px 70px;
+    display:grid;grid-template-columns:1.3fr 1fr;gap:40px;align-items:center;
+  }
+  .hero .role-line{
+    font-family:'IBM Plex Mono', monospace;font-size:13px;letter-spacing:.02em;
+    color:var(--teal);margin-bottom:14px;
+  }
+  .hero h1{font-size:44px;line-height:1.12;letter-spacing:-.01em;}
+  .hero h1 em{font-style:italic;color:var(--ochre);}
+  .hero p.tagline{
+    margin-top:18px;font-size:16.5px;color:var(--ink-soft);max-width:46ch;
+  }
+  .hero .meta{
+    margin-top:24px;display:flex;flex-wrap:wrap;gap:10px 22px;font-size:13.5px;color:var(--ink-soft);
+  }
+  .hero .meta span{display:flex;align-items:center;gap:6px;}
+  .cta-row{margin-top:28px;display:flex;gap:14px;flex-wrap:wrap;}
+  .btn{
+    display:inline-block;padding:11px 20px;border-radius:2px;font-size:14px;
+    text-decoration:none;border:1px solid var(--ink);
+  }
+  .btn.solid{background:var(--ink);color:var(--white);}
+  .btn.ghost{background:transparent;color:var(--ink);}
+
+  /* hero graphic: data-point motif */
+  .graphic{position:relative;height:230px;}
+  .graphic svg{width:100%;height:100%;}
+
+  /* Sections */
+  section{max-width:920px;margin:0 auto;padding:56px 28px;border-top:1px solid var(--line);}
+  .eyebrow{
+    font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--teal);
+    margin-bottom:10px;
+  }
+  section h2{font-size:26px;margin-bottom:22px;}
+
+  /* Profil */
+  .profil p{font-size:16px;max-width:66ch;color:var(--ink-soft);margin:0 0 16px;}
+  .profil p strong{color:var(--ink);font-weight:600;}
+
+  /* Domaines expertise: two columns */
+  .domaines{display:grid;grid-template-columns:1fr 1fr;gap:32px;}
+  .domaine-col{background:var(--white);border:1px solid var(--line);padding:24px;}
+  .domaine-col h3{font-size:17px;margin-bottom:14px;padding-bottom:12px;border-bottom:1px solid var(--line);}
+  .domaine-col.protection h3{color:var(--ochre);}
+  .domaine-col.meal h3{color:var(--teal);}
+  .domaine-col ul{margin:0;padding:0;list-style:none;}
+  .domaine-col li{
+    font-size:14.5px;color:var(--ink-soft);padding:7px 0;
+    border-bottom:1px dashed var(--line);
+  }
+  .domaine-col li:last-child{border-bottom:none;}
+
+  /* Projets */
+  .projets{display:grid;grid-template-columns:1fr;gap:18px;}
+  .projet{
+    background:var(--white);border:1px solid var(--line);padding:22px 24px;
+    display:grid;grid-template-columns:auto 1fr;gap:20px;
+  }
+  .projet .tag{
+    font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--teal);
+    background:#E4EEE9;padding:4px 8px;height:fit-content;white-space:nowrap;
+  }
+  .projet h3{font-size:16.5px;margin-bottom:6px;}
+  .projet p{margin:0 0 10px;font-size:14.5px;color:var(--ink-soft);}
+  .projet .stack{font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--ink-soft);}
+  .projet a.link{font-size:13.5px;color:var(--ochre);text-decoration:none;border-bottom:1px solid var(--ochre);}
+
+  /* Parcours timeline */
+  .timeline{border-left:2px solid var(--line);margin-left:6px;}
+  .tl-item{position:relative;padding:0 0 30px 26px;}
+  .tl-item:last-child{padding-bottom:0;}
+  .tl-item::before{
+    content:"";position:absolute;left:-7px;top:4px;width:12px;height:12px;
+    border-radius:50%;background:var(--paper);border:2px solid var(--teal);
+  }
+  .tl-item .period{font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--teal);margin-bottom:4px;}
+  .tl-item h3{font-size:16px;margin-bottom:4px;}
+  .tl-item .org{font-size:13.5px;color:var(--ink-soft);margin-bottom:8px;}
+  .tl-item p{font-size:14.5px;color:var(--ink-soft);margin:0;max-width:64ch;}
+
+  /* Toolkit */
+  .toolkit{display:flex;flex-wrap:wrap;gap:10px;}
+  .toolkit span{
+    font-family:'IBM Plex Mono',monospace;font-size:12.5px;
+    padding:7px 13px;border:1px solid var(--line);background:var(--white);
+  }
+
+  /* Formation */
+  .formation-item{margin-bottom:16px;}
+  .formation-item h3{font-size:16px;}
+  .formation-item .org{font-size:13.5px;color:var(--ink-soft);}
+
+  /* Footer/contact */
+  footer{
+    max-width:920px;margin:0 auto;padding:50px 28px 60px;border-top:1px solid var(--line);
+  }
+  footer h2{font-size:24px;margin-bottom:10px;}
+  footer p{color:var(--ink-soft);font-size:15px;max-width:50ch;}
+  .contact-links{margin-top:20px;display:flex;flex-wrap:wrap;gap:24px;font-size:14.5px;}
+  .contact-links a{text-decoration:none;border-bottom:1px solid var(--ink);}
+  .langs{margin-top:26px;display:flex;gap:20px;font-size:13.5px;color:var(--ink-soft);}
+  .fine-print{margin-top:50px;font-size:12px;color:var(--ink-soft);opacity:.7;}
+
+  @media (max-width:720px){
+    .hero{grid-template-columns:1fr;padding-top:10px;}
+    .graphic{order:-1;height:150px;}
+    .hero h1{font-size:32px;}
+    .domaines{grid-template-columns:1fr;}
+    .projet{grid-template-columns:1fr;}
+    nav a{margin-left:14px;font-size:13px;}
+  }
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="mark">Kendy Philippe</div>
+  <nav>
+    <a href="#profil">Profil</a>
+    <a href="#expertise">Expertise</a>
+    <a href="#projets">Projets</a>
+    <a href="#parcours">Parcours</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</header>
+
+<section class="hero" style="border-top:none;padding-top:10px;">
+  <div>
+    <div class="role-line">TRAVAIL SOCIAL — PROTECTION — MEAL</div>
+    <h1>Je conçois des systèmes qui <em>mesurent</em> ce que le travail social <em>change</em>.</h1>
+    <p class="tagline">Travailleur social et spécialiste MEAL basé à Jérémie, Grand'Anse. Intervention directe auprès des populations vulnérables (protection, PSEA, appui psychosocial) et conception de dispositifs de suivi-évaluation pour en mesurer l'impact.</p>
+    <div class="meta">
+      <span>📍 Jérémie, Grand'Anse, Haïti</span>
+      <span>💼 FHADIMAC</span>
+      <span>🎓 Spécialisation M&E — IUS/SIPDEC</span>
+    </div>
+    <div class="cta-row">
+      <a class="btn solid" href="#contact">Me contacter</a>
+      <a class="btn ghost" href="CV_Kendy_Philippe.pdf">Télécharger le CV</a>
+    </div>
+  </div>
+  <div class="graphic">
+    <svg viewBox="0 0 300 230" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <!-- axis -->
+      <line x1="20" y1="200" x2="280" y2="200" stroke="#D3CDBB" stroke-width="1"/>
+      <line x1="20" y1="20" x2="20" y2="200" stroke="#D3CDBB" stroke-width="1"/>
+      <!-- data line: MEAL -->
+      <polyline points="20,170 65,150 110,158 155,110 200,95 245,55 280,40" fill="none" stroke="#3E6B5C" stroke-width="2.5"/>
+      <circle cx="65" cy="150" r="4" fill="#3E6B5C"/>
+      <circle cx="155" cy="110" r="4" fill="#3E6B5C"/>
+      <circle cx="245" cy="55" r="4" fill="#3E6B5C"/>
+      <!-- protection markers: dots scattered representing case tracking -->
+      <circle cx="45" cy="185" r="5" fill="#B8862B" opacity="0.85"/>
+      <circle cx="95" cy="188" r="5" fill="#B8862B" opacity="0.85"/>
+      <circle cx="140" cy="182" r="5" fill="#B8862B" opacity="0.85"/>
+      <circle cx="185" cy="186" r="5" fill="#B8862B" opacity="0.6"/>
+      <circle cx="230" cy="180" r="5" fill="#B8862B" opacity="0.6"/>
+      <text x="20" y="215" font-family="IBM Plex Mono" font-size="9" fill="#4A5568">cas suivis</text>
+      <text x="230" y="35" font-family="IBM Plex Mono" font-size="9" fill="#4A5568">indicateurs</text>
+    </svg>
+  </div>
+</section>
+
+<section id="profil" class="profil">
+  <div class="eyebrow">01 — PROFIL</div>
+  <h2>Une double expertise, une seule pratique</h2>
+  <p>Je conçois et gère la collecte de données mobile (<strong>KoboToolbox, ODK Collect, ONA</strong>) et l'analyse/visualisation (<strong>R, Power BI, QGIS, SPSS, SQL</strong>) — non pas comme un technicien détaché du terrain, mais comme quelqu'un qui comprend directement les réalités que ces données représentent.</p>
+  <p>Mon expérience chez <strong>UNICEF Haïti</strong>, <strong>FHADIMAC</strong> et <strong>ICDH</strong> se situe à l'intersection du travail social, de la protection et de la donnée humanitaire. Titulaire d'un BACC+3 en Travail Social (UEH/FASCH), actuellement en spécialisation Monitoring & Évaluation (IUS/SIPDEC).</p>
+  <p>Ouvert aux missions de consultance MEAL, à la protection/PSEA, et aux collaborations avec ONG, agences des Nations Unies et organisations de développement.</p>
+</section>
+
+<section id="expertise">
+  <div class="eyebrow">02 — DOMAINES D'EXPERTISE</div>
+  <h2>Terrain et donnée, en miroir</h2>
+  <div class="domaines">
+    <div class="domaine-col protection">
+      <h3>Protection & intervention sociale</h3>
+      <ul>
+        <li>Gestion de cas — protection de l'enfance</li>
+        <li>PSEA (Prévention de l'Exploitation et des Abus Sexuels)</li>
+        <li>Appui psychosocial</li>
+        <li>Référencement inter-agences</li>
+        <li>Sensibilisation communautaire / U-Report</li>
+        <li>Engagement des adolescents (SBC)</li>
+      </ul>
+    </div>
+    <div class="domaine-col meal">
+      <h3>MEAL & données humanitaires</h3>
+      <ul>
+        <li>Conception de systèmes de suivi-évaluation</li>
+        <li>Échantillonnage statistique (méthode Cochran)</li>
+        <li>Collecte mobile — Kobo, ODK Collect, ONA</li>
+        <li>Analyse — R, Python, SPSS, SQL</li>
+        <li>Visualisation — Power BI / DAX, QGIS</li>
+        <li>Évaluation formative de programmes</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section id="projets" class="projets-section">
+  <div class="eyebrow">03 — PROJETS</div>
+  <h2>Portfolio technique</h2>
+  <div class="projets">
+    <div class="projet">
+      <span class="tag">R · ÉCHANTILLONNAGE</span>
+      <div>
+        <h3>Exercice d'échantillonnage SIPDEC</h3>
+        <p>Détermination de la taille d'échantillon par la méthode de Cochran (N=551 → n=227) pour une évaluation formative de programme.</p>
+        <div class="stack">R · statistiques d'enquête</div>
+        <br>
+        <a class="link" href="#" target="_blank">Voir sur GitHub →</a>
+      </div>
+    </div>
+    <div class="projet">
+      <span class="tag">R · ENQUÊTE MÉNAGE</span>
+      <div>
+        <h3>Nettoyage et analyse d'une enquête ménage</h3>
+        <p>Import, gestion des valeurs manquantes, variable de contrôle, dédoublonnage, jointure, statistiques descriptives et tests du Khi-deux sur des données socio-démographiques.</p>
+        <div class="stack">R · dplyr · ggplot2</div>
+        <br>
+        <a class="link" href="#" target="_blank">Voir sur GitHub →</a>
+      </div>
+    </div>
+    <div class="projet">
+      <span class="tag">EXCEL · TABLEAU DE BORD</span>
+      <div>
+        <h3>Analyse d'une base de données commerciale</h3>
+        <p>Structuration d'une base d'opérations commerciales et création d'un tableau de bord (8 graphiques, indicateurs clés) — projet SIPDEC, 6ᵉ cohorte.</p>
+        <div class="stack">Excel · TCD · Graphiques</div>
+        <br>
+        <a class="link" href="#" target="_blank">Voir le projet →</a>
+      </div>
+    </div>
+    <div class="projet">
+      <span class="tag">POWER BI · SANTÉ</span>
+      <div>
+        <h3>Tableau de bord de suivi de patients</h3>
+        <p>Indicateurs clés (effectifs, répartition par sexe, âge moyen) et visualisations par statut clinique, tranche d'âge, niveau d'éducation et niveau socio-économique.</p>
+        <div class="stack">Power BI</div>
+        <br>
+        <a class="link" href="#" target="_blank">Voir le projet →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="parcours">
+  <div class="eyebrow">04 — PARCOURS PROFESSIONNEL</div>
+  <h2>Expérience de terrain</h2>
+  <div class="timeline">
+    <div class="tl-item">
+      <div class="period">Mars 2024 — présent</div>
+      <h3>Travailleur social</h3>
+      <div class="org">FHADIMAC — Jérémie, Grand'Anse</div>
+      <p>Mise en œuvre de systèmes de suivi-évaluation pour des projets de santé publique ; animation de séances éducatives auprès de plus de 500 bénéficiaires/mois ; collaboration avec équipes programme et comités locaux.</p>
+    </div>
+    <div class="tl-item">
+      <div class="period">Juin — Août 2026</div>
+      <h3>Évaluateur — Séminaires SIPDEC (2017–2026)</h3>
+      <div class="org">SIPDEC</div>
+      <p>Méthodologie d'échantillonnage statistique (formule de Cochran, N=551 → n=227) pour l'évaluation formative de 14 séminaires ; collecte et analyse auprès de 551 participants ; rédaction du rapport et recommandations.</p>
+    </div>
+    <div class="tl-item">
+      <div class="period">Décembre 2025 (1 mois)</div>
+      <h3>Animateur — Recherche sur les VBG</h3>
+      <div class="org">Brigade d'Intervention Médicale (BIM) — Grand'Anse</div>
+      <p>Organisation et animation de focus groups ; réalisation et analyse d'entretiens clés avec les parties prenantes.</p>
+    </div>
+    <div class="tl-item">
+      <div class="period">Décembre 2025 (1 mois)</div>
+      <h3>Projet académique — Gouvernance locale</h3>
+      <div class="org">Commune de Kenscoff</div>
+      <p>Conception d'outils de collecte (KoboToolbox/ONA) pour un cadre de suivi-évaluation et un cadre logique ; analyse de données (Excel, SPSS, R) et recommandations pour la prise de décision locale.</p>
+    </div>
+    <div class="tl-item">
+      <div class="period">Décembre 2023 — Mai 2024</div>
+      <h3>Stagiaire, Engagement des adolescents et des jeunes</h3>
+      <div class="org">UNICEF Haïti</div>
+      <p>Conception d'outils de collecte pour des campagnes sur l'égalité de genre, mobilisant plus de 5 000 jeunes via U-Report ; analyse de données pour appuyer la prise de décision.</p>
+    </div>
+    <div class="tl-item">
+      <div class="period">Avril — Septembre 2023</div>
+      <h3>Stagiaire, Agent de protection</h3>
+      <div class="org">ICDH</div>
+      <p>Suivi et documentation d'environ 20 dossiers de protection de l'enfance ; préparation de rapports de performance narratifs et GTPE ; une dizaine de référencements inter-agences.</p>
+    </div>
+    <div class="tl-item">
+      <div class="period">Décembre 2022 (1 mois)</div>
+      <h3>Animateur et Transcripteur</h3>
+      <div class="org">Mercy Corps — Beaumont, Grand'Anse</div>
+      <p>Planification et gestion du travail de terrain pour la collecte de données qualitatives ; coordination avec leaders et autorités locales ; rapports quotidiens et synthèses de focus groups.</p>
+    </div>
+  </div>
+</section>
+
+<section id="certifications">
+  <div class="eyebrow">05 — CERTIFICATIONS</div>
+  <h2>Formations complémentaires</h2>
+  <div class="toolkit">
+    <span>Analyse de données avec R — SIPDEC, 2026</span>
+    <span>Tableaux de bord Power BI — SIPDEC, 2026</span>
+    <span>Social Norms, Social Change I — UPenn/UNICEF, 2025</span>
+    <span>Social Work Practice — Univ. of Michigan, 2025</span>
+    <span>PSEA — AGORA UNICEF, 2023</span>
+    <span>GBV Disclosure Response — DisasterReady, 2022</span>
+    <span>Droit international humanitaire — HLA, 2023</span>
+    <span>Genre : enjeux et violences — Univ. de Genève, 2025</span>
+    <span>Égalité femmes-hommes — OIF, 2022</span>
+  </div>
+</section>
+
+<section id="toolkit-section">
+  <div class="eyebrow">06 — BOÎTE À OUTILS</div>
+  <h2>Outils techniques</h2>
+  <div class="toolkit">
+    <span>R</span><span>SPSS</span><span>SQL / PostgreSQL</span><span>Power BI</span><span>QGIS</span>
+    <span>KoboToolbox</span><span>ODK Collect</span><span>ONA</span><span>Google Forms</span>
+    <span>Excel avancé</span><span>Word</span><span>PowerPoint</span>
+  </div>
+</section>
+
+<section id="formation">
+  <div class="eyebrow">07 — FORMATION</div>
+  <h2>Formation académique</h2>
+  <div class="formation-item">
+    <h3>Diplôme de spécialisation en Suivi & Évaluation (en cours)</h3>
+    <div class="org">SIPDEC / IUS, Port-au-Prince — 2025–2026</div>
+  </div>
+  <div class="formation-item">
+    <h3>Licence en Travail social</h3>
+    <div class="org">UEH / FASCH, Port-au-Prince — 2016–2020</div>
+  </div>
+</section>
+
+<footer id="contact">
+  <div class="eyebrow">08 — CONTACT</div>
+  <h2>Discutons de votre programme</h2>
+  <p>Disponible pour des missions de consultance MEAL, protection/PSEA, en Haïti ou à distance. Mobilité géographique sur l'ensemble du territoire national.</p>
+  <div class="contact-links">
+    <a href="mailto:kendyphilippe4@gmail.com">kendyphilippe4@gmail.com</a>
+    <a href="tel:+50948824055">+509 4882-4055</a>
+    <a href="#" target="_blank">LinkedIn</a>
+    <a href="#" target="_blank">GitHub</a>
+  </div>
+  <div class="langs">
+    <span>Français — courant (C2, langue de travail)</span>
+    <span>Créole haïtien — langue maternelle</span>
+    <span>Anglais — professionnel (B2)</span>
+  </div>
+  <div class="fine-print">Portfolio de Kendy Philippe — liens LinkedIn/GitHub à ajouter.</div>
+</footer>
+
+</body>
+</html>
