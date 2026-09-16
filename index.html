@@ -3,404 +3,2744 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Kendy Philippe — Travail social & MEAL</title>
+
+<title>Kendy Philippe | Travail social · MEAL · Data</title>
+
+<meta name="description"
+      content="Portfolio professionnel de Kendy Philippe — Travail social, protection, suivi-évaluation et analyse de données.">
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
+      rel="stylesheet">
+
 <style>
-  :root{
-    --paper:#EFEDE4;
-    --paper-2:#E7E3D6;
-    --ink:#1E2A38;
-    --ink-soft:#4A5568;
-    --ochre:#B8862B;
-    --teal:#3E6B5C;
-    --line:#D3CDBB;
-    --white:#FBFAF6;
-  }
-  *{box-sizing:border-box;}
-  html{scroll-behavior:smooth;}
-  body{
-    margin:0;
-    background:var(--paper);
-    color:var(--ink);
-    font-family:'IBM Plex Sans', sans-serif;
-    line-height:1.6;
-    -webkit-font-smoothing:antialiased;
-  }
-  h1,h2,h3{
-    font-family:'Lora', serif;
-    font-weight:600;
-    margin:0;
-    color:var(--ink);
-  }
-  a{color:inherit;}
-  .wrap{max-width:920px;margin:0 auto;padding:0 28px;}
 
-  /* Header */
-  header.top{
-    display:flex;justify-content:space-between;align-items:center;
-    padding:22px 28px;max-width:920px;margin:0 auto;
-    font-size:14px;
-  }
-  .mark{font-family:'Lora',serif;font-weight:600;font-size:17px;}
-  nav a{margin-left:22px;text-decoration:none;color:var(--ink-soft);font-size:14px;}
-  nav a:hover{color:var(--teal);}
+/* =========================================================
+   VARIABLES
+========================================================= */
 
-  /* Hero */
-  .hero{
-    max-width:920px;margin:0 auto;padding:38px 28px 70px;
-    display:grid;grid-template-columns:1.3fr 1fr;gap:40px;align-items:center;
-  }
-  .hero .role-line{
-    font-family:'IBM Plex Mono', monospace;font-size:13px;letter-spacing:.02em;
-    color:var(--teal);margin-bottom:14px;
-  }
-  .hero h1{font-size:44px;line-height:1.12;letter-spacing:-.01em;}
-  .hero h1 em{font-style:italic;color:var(--ochre);}
-  .hero p.tagline{
-    margin-top:18px;font-size:16.5px;color:var(--ink-soft);max-width:46ch;
-  }
-  .hero .meta{
-    margin-top:24px;display:flex;flex-wrap:wrap;gap:10px 22px;font-size:13.5px;color:var(--ink-soft);
-  }
-  .hero .meta span{display:flex;align-items:center;gap:6px;}
-  .cta-row{margin-top:28px;display:flex;gap:14px;flex-wrap:wrap;}
-  .btn{
-    display:inline-block;padding:11px 20px;border-radius:2px;font-size:14px;
-    text-decoration:none;border:1px solid var(--ink);
-  }
-  .btn.solid{background:var(--ink);color:var(--white);}
-  .btn.ghost{background:transparent;color:var(--ink);}
+:root {
+    --navy: #0b1f33;
+    --navy-2: #102b44;
+    --teal: #147d72;
+    --teal-light: #dff3ef;
+    --gold: #c9973e;
+    --gold-light: #f5ead5;
 
-  /* hero graphic: data-point motif */
-  .graphic{position:relative;height:230px;}
-  .graphic svg{width:100%;height:100%;}
+    --cream: #f7f6f1;
+    --white: #ffffff;
+    --text: #172536;
+    --muted: #657181;
+    --border: #dde2e6;
 
-  /* Sections */
-  section{max-width:920px;margin:0 auto;padding:56px 28px;border-top:1px solid var(--line);}
-  .eyebrow{
-    font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--teal);
-    margin-bottom:10px;
-  }
-  section h2{font-size:26px;margin-bottom:22px;}
+    --shadow: 0 20px 50px rgba(11, 31, 51, .08);
 
-  /* Profil */
-  .profil p{font-size:16px;max-width:66ch;color:var(--ink-soft);margin:0 0 16px;}
-  .profil p strong{color:var(--ink);font-weight:600;}
+    --radius: 18px;
+    --transition: .35s ease;
+}
 
-  /* Domaines expertise: two columns */
-  .domaines{display:grid;grid-template-columns:1fr 1fr;gap:32px;}
-  .domaine-col{background:var(--white);border:1px solid var(--line);padding:24px;}
-  .domaine-col h3{font-size:17px;margin-bottom:14px;padding-bottom:12px;border-bottom:1px solid var(--line);}
-  .domaine-col.protection h3{color:var(--ochre);}
-  .domaine-col.meal h3{color:var(--teal);}
-  .domaine-col ul{margin:0;padding:0;list-style:none;}
-  .domaine-col li{
-    font-size:14.5px;color:var(--ink-soft);padding:7px 0;
-    border-bottom:1px dashed var(--line);
-  }
-  .domaine-col li:last-child{border-bottom:none;}
 
-  /* Projets */
-  .projets{display:grid;grid-template-columns:1fr;gap:18px;}
-  .projet{
-    background:var(--white);border:1px solid var(--line);padding:22px 24px;
-    display:grid;grid-template-columns:auto 1fr;gap:20px;
-  }
-  .projet .tag{
-    font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--teal);
-    background:#E4EEE9;padding:4px 8px;height:fit-content;white-space:nowrap;
-  }
-  .projet h3{font-size:16.5px;margin-bottom:6px;}
-  .projet p{margin:0 0 10px;font-size:14.5px;color:var(--ink-soft);}
-  .projet .stack{font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--ink-soft);}
-  .projet a.link{font-size:13.5px;color:var(--ochre);text-decoration:none;border-bottom:1px solid var(--ochre);}
+/* =========================================================
+   RESET
+========================================================= */
 
-  /* Parcours timeline */
-  .timeline{border-left:2px solid var(--line);margin-left:6px;}
-  .tl-item{position:relative;padding:0 0 30px 26px;}
-  .tl-item:last-child{padding-bottom:0;}
-  .tl-item::before{
-    content:"";position:absolute;left:-7px;top:4px;width:12px;height:12px;
-    border-radius:50%;background:var(--paper);border:2px solid var(--teal);
-  }
-  .tl-item .period{font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--teal);margin-bottom:4px;}
-  .tl-item h3{font-size:16px;margin-bottom:4px;}
-  .tl-item .org{font-size:13.5px;color:var(--ink-soft);margin-bottom:8px;}
-  .tl-item p{font-size:14.5px;color:var(--ink-soft);margin:0;max-width:64ch;}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-  /* Toolkit */
-  .toolkit{display:flex;flex-wrap:wrap;gap:10px;}
-  .toolkit span{
-    font-family:'IBM Plex Mono',monospace;font-size:12.5px;
-    padding:7px 13px;border:1px solid var(--line);background:var(--white);
-  }
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 90px;
+}
 
-  /* Formation */
-  .formation-item{margin-bottom:16px;}
-  .formation-item h3{font-size:16px;}
-  .formation-item .org{font-size:13.5px;color:var(--ink-soft);}
+body {
+    font-family: "DM Sans", sans-serif;
+    background: var(--cream);
+    color: var(--text);
+    line-height: 1.7;
+    overflow-x: hidden;
+}
 
-  /* Footer/contact */
-  footer{
-    max-width:920px;margin:0 auto;padding:50px 28px 60px;border-top:1px solid var(--line);
-  }
-  footer h2{font-size:24px;margin-bottom:10px;}
-  footer p{color:var(--ink-soft);font-size:15px;max-width:50ch;}
-  .contact-links{margin-top:20px;display:flex;flex-wrap:wrap;gap:24px;font-size:14.5px;}
-  .contact-links a{text-decoration:none;border-bottom:1px solid var(--ink);}
-  .langs{margin-top:26px;display:flex;gap:20px;font-size:13.5px;color:var(--ink-soft);}
-  .fine-print{margin-top:50px;font-size:12px;color:var(--ink-soft);opacity:.7;}
+img {
+    max-width: 100%;
+    display: block;
+}
 
-  @media (max-width:720px){
-    .hero{grid-template-columns:1fr;padding-top:10px;}
-    .graphic{order:-1;height:150px;}
-    .hero h1{font-size:32px;}
-    .domaines{grid-template-columns:1fr;}
-    .projet{grid-template-columns:1fr;}
-    nav a{margin-left:14px;font-size:13px;}
-  }
+a {
+    color: inherit;
+}
+
+button {
+    font: inherit;
+}
+
+
+/* =========================================================
+   GLOBAL
+========================================================= */
+
+.container {
+    width: min(1180px, 92%);
+    margin: auto;
+}
+
+.section {
+    padding: 110px 0;
+}
+
+.section-header {
+    max-width: 720px;
+    margin-bottom: 55px;
+}
+
+.eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+
+    font-family: "JetBrains Mono", monospace;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+
+    color: var(--teal);
+    margin-bottom: 16px;
+}
+
+.eyebrow::before {
+    content: "";
+    width: 28px;
+    height: 2px;
+    background: var(--gold);
+}
+
+h1,
+h2,
+h3 {
+    font-family: "Playfair Display", serif;
+    line-height: 1.15;
+    color: var(--navy);
+}
+
+h2 {
+    font-size: clamp(2rem, 4vw, 3rem);
+}
+
+.section-intro {
+    margin-top: 18px;
+    color: var(--muted);
+    font-size: 17px;
+}
+
+.highlight {
+    color: var(--teal);
+}
+
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+
+    z-index: 1000;
+
+    background: rgba(247, 246, 241, .88);
+    backdrop-filter: blur(14px);
+
+    border-bottom: 1px solid rgba(221, 226, 230, .75);
+
+    transition: var(--transition);
+}
+
+header.scrolled {
+    box-shadow: 0 10px 30px rgba(11, 31, 51, .07);
+}
+
+.navbar {
+    height: 76px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo {
+    text-decoration: none;
+    font-family: "Playfair Display", serif;
+    font-size: 21px;
+    font-weight: 700;
+    color: var(--navy);
+}
+
+.logo span {
+    color: var(--teal);
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    list-style: none;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--muted);
+    font-size: 14px;
+    font-weight: 500;
+
+    position: relative;
+
+    transition: var(--transition);
+}
+
+.nav-links a::after {
+    content: "";
+
+    position: absolute;
+    left: 0;
+    bottom: -8px;
+
+    width: 0;
+    height: 2px;
+
+    background: var(--teal);
+
+    transition: var(--transition);
+}
+
+.nav-links a:hover {
+    color: var(--navy);
+}
+
+.nav-links a:hover::after {
+    width: 100%;
+}
+
+.nav-contact {
+    padding: 10px 17px;
+
+    border: 1px solid var(--navy);
+    border-radius: 8px;
+
+    color: var(--navy) !important;
+}
+
+.nav-contact:hover {
+    background: var(--navy);
+    color: white !important;
+}
+
+.menu-toggle {
+    display: none;
+
+    border: 0;
+    background: transparent;
+
+    font-size: 25px;
+    cursor: pointer;
+}
+
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.hero {
+    min-height: 100vh;
+
+    display: flex;
+    align-items: center;
+
+    position: relative;
+
+    padding-top: 100px;
+
+    overflow: hidden;
+}
+
+.hero::before {
+    content: "";
+
+    position: absolute;
+
+    width: 600px;
+    height: 600px;
+
+    border-radius: 50%;
+
+    background: rgba(20, 125, 114, .07);
+
+    top: -220px;
+    right: -200px;
+
+    animation: float 8s ease-in-out infinite;
+}
+
+.hero::after {
+    content: "";
+
+    position: absolute;
+
+    width: 400px;
+    height: 400px;
+
+    border-radius: 50%;
+
+    border: 1px solid rgba(201, 151, 62, .15);
+
+    bottom: -180px;
+    left: -150px;
+
+    animation: float 10s ease-in-out infinite reverse;
+}
+
+.hero-grid {
+    display: grid;
+
+    grid-template-columns: 1.15fr .85fr;
+
+    gap: 80px;
+
+    align-items: center;
+
+    position: relative;
+    z-index: 2;
+}
+
+.hero-label {
+    font-family: "JetBrains Mono", monospace;
+
+    color: var(--teal);
+
+    font-size: 13px;
+
+    letter-spacing: .04em;
+
+    margin-bottom: 22px;
+}
+
+.hero h1 {
+    font-size: clamp(3rem, 6vw, 5.3rem);
+
+    letter-spacing: -.04em;
+
+    max-width: 780px;
+}
+
+.hero h1 em {
+    color: var(--gold);
+    font-style: normal;
+}
+
+.hero-description {
+    max-width: 650px;
+
+    margin-top: 28px;
+
+    color: var(--muted);
+
+    font-size: 18px;
+}
+
+.hero-buttons {
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 14px;
+
+    margin-top: 34px;
+}
+
+.btn {
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 9px;
+
+    padding: 13px 21px;
+
+    border-radius: 9px;
+
+    text-decoration: none;
+
+    font-size: 14px;
+    font-weight: 600;
+
+    transition: var(--transition);
+}
+
+.btn-primary {
+    background: var(--navy);
+    color: white;
+
+    box-shadow: 0 10px 25px rgba(11, 31, 51, .16);
+}
+
+.btn-primary:hover {
+    background: var(--teal);
+    transform: translateY(-3px);
+}
+
+.btn-secondary {
+    border: 1px solid var(--border);
+    background: white;
+    color: var(--navy);
+}
+
+.btn-secondary:hover {
+    border-color: var(--teal);
+    color: var(--teal);
+
+    transform: translateY(-3px);
+}
+
+
+/* =========================================================
+   HERO VISUAL
+========================================================= */
+
+.data-visual {
+    position: relative;
+
+    min-height: 450px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+}
+
+.visual-card {
+    width: 360px;
+
+    background: rgba(255, 255, 255, .9);
+
+    border: 1px solid var(--border);
+
+    border-radius: 24px;
+
+    padding: 28px;
+
+    box-shadow: var(--shadow);
+
+    transform: rotate(2deg);
+
+    animation: cardFloat 6s ease-in-out infinite;
+}
+
+.visual-top {
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    margin-bottom: 25px;
+}
+
+.visual-title {
+    font-weight: 700;
+    color: var(--navy);
+}
+
+.status {
+    font-family: "JetBrains Mono", monospace;
+
+    font-size: 10px;
+
+    color: var(--teal);
+
+    background: var(--teal-light);
+
+    padding: 5px 9px;
+
+    border-radius: 20px;
+}
+
+.chart {
+    height: 190px;
+
+    display: flex;
+
+    align-items: end;
+
+    gap: 12px;
+
+    padding: 20px;
+
+    border-radius: 14px;
+
+    background:
+        linear-gradient(
+            to bottom,
+            transparent 24%,
+            #e9edf0 25%,
+            transparent 26%,
+            transparent 49%,
+            #e9edf0 50%,
+            transparent 51%,
+            transparent 74%,
+            #e9edf0 75%,
+            transparent 76%
+        );
+}
+
+.bar {
+    flex: 1;
+
+    background: var(--teal);
+
+    border-radius: 5px 5px 2px 2px;
+
+    transform-origin: bottom;
+
+    animation: growBar 1.2s ease forwards;
+}
+
+.bar:nth-child(1) { height: 35%; animation-delay: .1s; }
+.bar:nth-child(2) { height: 52%; animation-delay: .2s; }
+.bar:nth-child(3) { height: 44%; animation-delay: .3s; }
+.bar:nth-child(4) { height: 67%; animation-delay: .4s; }
+.bar:nth-child(5) { height: 74%; animation-delay: .5s; }
+.bar:nth-child(6) { height: 91%; animation-delay: .6s; }
+
+.visual-bottom {
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 10px;
+
+    margin-top: 20px;
+}
+
+.metric {
+    background: var(--cream);
+
+    border-radius: 10px;
+
+    padding: 12px;
+}
+
+.metric strong {
+    display: block;
+
+    color: var(--navy);
+
+    font-size: 18px;
+}
+
+.metric span {
+    font-size: 10px;
+    color: var(--muted);
+}
+
+
+/* =========================================================
+   STATS
+========================================================= */
+
+.stats {
+    padding: 28px 0;
+
+    background: var(--navy);
+
+    color: white;
+}
+
+.stats-grid {
+    display: grid;
+
+    grid-template-columns: repeat(4, 1fr);
+
+    gap: 20px;
+}
+
+.stat {
+    text-align: center;
+
+    padding: 10px;
+
+    border-right: 1px solid rgba(255,255,255,.12);
+}
+
+.stat:last-child {
+    border-right: 0;
+}
+
+.stat-number {
+    font-family: "Playfair Display", serif;
+
+    font-size: 30px;
+
+    color: white;
+}
+
+.stat-label {
+    font-size: 12px;
+
+    color: rgba(255,255,255,.65);
+
+    margin-top: 2px;
+}
+
+
+/* =========================================================
+   ABOUT
+========================================================= */
+
+.about-grid {
+    display: grid;
+
+    grid-template-columns: .8fr 1.2fr;
+
+    gap: 70px;
+
+    align-items: start;
+}
+
+.about-card {
+    background: var(--navy);
+
+    color: white;
+
+    padding: 38px;
+
+    border-radius: var(--radius);
+
+    position: relative;
+
+    overflow: hidden;
+}
+
+.about-card::before {
+    content: "";
+
+    position: absolute;
+
+    width: 180px;
+    height: 180px;
+
+    border: 1px solid rgba(255,255,255,.12);
+
+    border-radius: 50%;
+
+    right: -70px;
+    top: -70px;
+}
+
+.about-card h3 {
+    color: white;
+
+    font-size: 28px;
+
+    margin-bottom: 15px;
+}
+
+.about-card p {
+    color: rgba(255,255,255,.72);
+
+    font-size: 15px;
+}
+
+.about-content p {
+    color: var(--muted);
+
+    margin-bottom: 18px;
+
+    font-size: 16px;
+}
+
+.about-content strong {
+    color: var(--navy);
+}
+
+
+/* =========================================================
+   EXPERTISE
+========================================================= */
+
+.expertise {
+    background: white;
+}
+
+.expertise-grid {
+    display: grid;
+
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 24px;
+}
+
+.expertise-card {
+    padding: 35px;
+
+    border: 1px solid var(--border);
+
+    border-radius: var(--radius);
+
+    transition: var(--transition);
+
+    background: white;
+}
+
+.expertise-card:hover {
+    transform: translateY(-8px);
+
+    box-shadow: var(--shadow);
+
+    border-color: transparent;
+}
+
+.icon {
+    width: 50px;
+    height: 50px;
+
+    display: grid;
+    place-items: center;
+
+    border-radius: 12px;
+
+    background: var(--teal-light);
+
+    color: var(--teal);
+
+    font-weight: 700;
+
+    margin-bottom: 23px;
+}
+
+.expertise-card:nth-child(2) .icon {
+    background: var(--gold-light);
+    color: var(--gold);
+}
+
+.expertise-card h3 {
+    font-size: 24px;
+
+    margin-bottom: 18px;
+}
+
+.expertise-list {
+    list-style: none;
+}
+
+.expertise-list li {
+    color: var(--muted);
+
+    font-size: 14px;
+
+    padding: 9px 0;
+
+    border-bottom: 1px dashed var(--border);
+}
+
+.expertise-list li:last-child {
+    border-bottom: 0;
+}
+
+.expertise-list li::before {
+    content: "→";
+
+    color: var(--teal);
+
+    margin-right: 10px;
+}
+
+
+/* =========================================================
+   PROJECTS
+========================================================= */
+
+.projects-grid {
+    display: grid;
+
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 22px;
+}
+
+.project-card {
+    background: white;
+
+    border: 1px solid var(--border);
+
+    border-radius: var(--radius);
+
+    padding: 30px;
+
+    position: relative;
+
+    overflow: hidden;
+
+    transition: var(--transition);
+}
+
+.project-card:hover {
+    transform: translateY(-7px);
+
+    box-shadow: var(--shadow);
+}
+
+.project-number {
+    font-family: "JetBrains Mono", monospace;
+
+    font-size: 11px;
+
+    color: var(--gold);
+
+    margin-bottom: 20px;
+}
+
+.project-card h3 {
+    font-size: 22px;
+
+    margin-bottom: 12px;
+}
+
+.project-card p {
+    color: var(--muted);
+
+    font-size: 14px;
+
+    margin-bottom: 20px;
+}
+
+.project-tools {
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 7px;
+
+    margin-bottom: 23px;
+}
+
+.project-tools span {
+    font-family: "JetBrains Mono", monospace;
+
+    font-size: 10px;
+
+    background: var(--cream);
+
+    border: 1px solid var(--border);
+
+    padding: 5px 8px;
+
+    border-radius: 5px;
+}
+
+.project-link {
+    text-decoration: none;
+
+    font-size: 13px;
+
+    font-weight: 600;
+
+    color: var(--teal);
+}
+
+.project-link:hover {
+    color: var(--gold);
+}
+
+
+/* =========================================================
+   TIMELINE
+========================================================= */
+
+.timeline-section {
+    background: white;
+}
+
+.timeline {
+    max-width: 850px;
+
+    margin: auto;
+
+    position: relative;
+}
+
+.timeline::before {
+    content: "";
+
+    position: absolute;
+
+    left: 8px;
+    top: 0;
+    bottom: 0;
+
+    width: 2px;
+
+    background: var(--border);
+}
+
+.timeline-item {
+    position: relative;
+
+    padding-left: 45px;
+
+    padding-bottom: 48px;
+}
+
+.timeline-item:last-child {
+    padding-bottom: 0;
+}
+
+.timeline-dot {
+    position: absolute;
+
+    left: 0;
+    top: 4px;
+
+    width: 18px;
+    height: 18px;
+
+    border-radius: 50%;
+
+    background: white;
+
+    border: 4px solid var(--teal);
+
+    z-index: 2;
+}
+
+.timeline-period {
+    font-family: "JetBrains Mono", monospace;
+
+    color: var(--teal);
+
+    font-size: 11px;
+
+    margin-bottom: 8px;
+}
+
+.timeline-item h3 {
+    font-size: 21px;
+
+    margin-bottom: 3px;
+}
+
+.timeline-org {
+    color: var(--gold);
+
+    font-size: 13px;
+
+    font-weight: 600;
+
+    margin-bottom: 9px;
+}
+
+.timeline-item p {
+    color: var(--muted);
+
+    font-size: 14px;
+}
+
+
+/* =========================================================
+   SKILLS
+========================================================= */
+
+.skills-grid {
+    display: grid;
+
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 45px;
+}
+
+.skill {
+    margin-bottom: 22px;
+}
+
+.skill-header {
+    display: flex;
+
+    justify-content: space-between;
+
+    font-size: 13px;
+
+    margin-bottom: 8px;
+}
+
+.skill-header span:last-child {
+    color: var(--muted);
+}
+
+.progress {
+    height: 7px;
+
+    background: #e9edef;
+
+    border-radius: 10px;
+
+    overflow: hidden;
+}
+
+.progress-bar {
+    height: 100%;
+
+    width: 0;
+
+    background: var(--teal);
+
+    border-radius: 10px;
+
+    transition: width 1.4s ease;
+}
+
+
+/* =========================================================
+   EDUCATION
+========================================================= */
+
+.education-grid {
+    display: grid;
+
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 20px;
+}
+
+.education-card {
+    background: white;
+
+    border: 1px solid var(--border);
+
+    padding: 28px;
+
+    border-radius: var(--radius);
+
+    transition: var(--transition);
+}
+
+.education-card:hover {
+    transform: translateY(-5px);
+
+    box-shadow: var(--shadow);
+}
+
+.education-year {
+    font-family: "JetBrains Mono", monospace;
+
+    color: var(--teal);
+
+    font-size: 11px;
+
+    margin-bottom: 12px;
+}
+
+.education-card h3 {
+    font-size: 20px;
+
+    margin-bottom: 8px;
+}
+
+.education-org {
+    color: var(--muted);
+
+    font-size: 13px;
+}
+
+
+/* =========================================================
+   CERTIFICATIONS
+========================================================= */
+
+.certifications {
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 10px;
+}
+
+.cert {
+    background: white;
+
+    border: 1px solid var(--border);
+
+    padding: 9px 13px;
+
+    border-radius: 8px;
+
+    font-family: "JetBrains Mono", monospace;
+
+    font-size: 11px;
+
+    color: var(--muted);
+
+    transition: var(--transition);
+}
+
+.cert:hover {
+    color: var(--teal);
+
+    border-color: var(--teal);
+
+    transform: translateY(-2px);
+}
+
+
+/* =========================================================
+   CONTACT
+========================================================= */
+
+.contact {
+    background: var(--navy);
+
+    color: white;
+
+    position: relative;
+
+    overflow: hidden;
+}
+
+.contact::after {
+    content: "";
+
+    position: absolute;
+
+    width: 500px;
+    height: 500px;
+
+    border-radius: 50%;
+
+    border: 1px solid rgba(255,255,255,.08);
+
+    right: -250px;
+    top: -200px;
+}
+
+.contact h2 {
+    color: white;
+
+    max-width: 650px;
+}
+
+.contact .eyebrow {
+    color: #76c9bd;
+}
+
+.contact-description {
+    color: rgba(255,255,255,.68);
+
+    max-width: 650px;
+
+    margin-top: 20px;
+}
+
+.contact-links {
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 12px;
+
+    margin-top: 30px;
+
+    position: relative;
+    z-index: 2;
+}
+
+.contact-link {
+    display: inline-flex;
+
+    padding: 11px 17px;
+
+    border: 1px solid rgba(255,255,255,.18);
+
+    border-radius: 8px;
+
+    text-decoration: none;
+
+    color: white;
+
+    font-size: 13px;
+
+    transition: var(--transition);
+}
+
+.contact-link:hover {
+    background: white;
+
+    color: var(--navy);
+
+    transform: translateY(-3px);
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+footer {
+    background: #071827;
+
+    color: rgba(255,255,255,.55);
+
+    padding: 28px 0;
+
+    font-size: 12px;
+}
+
+.footer-inner {
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    gap: 20px;
+}
+
+.footer-name {
+    color: white;
+
+    font-family: "Playfair Display", serif;
+
+    font-size: 16px;
+}
+
+
+/* =========================================================
+   REVEAL ANIMATION
+========================================================= */
+
+.reveal {
+    opacity: 0;
+
+    transform: translateY(30px);
+
+    transition:
+        opacity .8s ease,
+        transform .8s ease;
+}
+
+.reveal.active {
+    opacity: 1;
+
+    transform: translateY(0);
+}
+
+
+/* =========================================================
+   ANIMATIONS
+========================================================= */
+
+@keyframes float {
+
+    0%,100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(25px);
+    }
+}
+
+@keyframes cardFloat {
+
+    0%,100% {
+        transform: rotate(2deg) translateY(0);
+    }
+
+    50% {
+        transform: rotate(2deg) translateY(-12px);
+    }
+}
+
+@keyframes growBar {
+
+    from {
+        transform: scaleY(0);
+    }
+
+    to {
+        transform: scaleY(1);
+    }
+}
+
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width: 900px) {
+
+    .hero-grid,
+    .about-grid {
+        grid-template-columns: 1fr;
+
+        gap: 50px;
+    }
+
+    .data-visual {
+        min-height: 360px;
+
+        order: -1;
+    }
+
+    .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .stat:nth-child(2) {
+        border-right: 0;
+    }
+
+    .skills-grid,
+    .education-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+@media (max-width: 720px) {
+
+    .section {
+        padding: 80px 0;
+    }
+
+    .nav-links {
+        position: fixed;
+
+        top: 76px;
+        left: 0;
+
+        width: 100%;
+
+        padding: 25px;
+
+        background: var(--white);
+
+        flex-direction: column;
+
+        align-items: flex-start;
+
+        gap: 20px;
+
+        transform: translateY(-120%);
+
+        transition: var(--transition);
+
+        box-shadow: 0 20px 30px rgba(11,31,51,.08);
+    }
+
+    .nav-links.active {
+        transform: translateY(0);
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+
+    .hero {
+        min-height: auto;
+
+        padding-top: 130px;
+
+        padding-bottom: 80px;
+    }
+
+    .hero h1 {
+        font-size: 3rem;
+    }
+
+    .hero-description {
+        font-size: 16px;
+    }
+
+    .visual-card {
+        width: min(360px, 92vw);
+    }
+
+    .expertise-grid,
+    .projects-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .stat {
+        border-right: 0;
+
+        border-bottom: 1px solid rgba(255,255,255,.12);
+    }
+
+    .footer-inner {
+        flex-direction: column;
+
+        align-items: flex-start;
+    }
+}
+
+
+@media (max-width: 450px) {
+
+    .hero h1 {
+        font-size: 2.45rem;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+
+        align-items: stretch;
+    }
+
+    .btn {
+        width: 100%;
+    }
+
+    .visual-bottom {
+        grid-template-columns: 1fr;
+    }
+}
+
 </style>
 </head>
+
+
 <body>
 
-<header class="top">
-  <div class="mark">Kendy Philippe</div>
-  <nav>
-    <a href="#profil">Profil</a>
-    <a href="#expertise">Expertise</a>
-    <a href="#projets">Projets</a>
-    <a href="#parcours">Parcours</a>
-    <a href="#contact">Contact</a>
-  </nav>
+
+<!-- =====================================================
+     HEADER
+===================================================== -->
+
+<header id="header">
+
+    <div class="container navbar">
+
+        <a href="#accueil" class="logo">
+            Kendy <span>Philippe</span>
+        </a>
+
+        <button
+            class="menu-toggle"
+            id="menuToggle"
+            aria-label="Ouvrir le menu">
+            ☰
+        </button>
+
+        <ul class="nav-links" id="navLinks">
+
+            <li><a href="#profil">Profil</a></li>
+            <li><a href="#expertise">Expertise</a></li>
+            <li><a href="#projets">Projets</a></li>
+            <li><a href="#parcours">Parcours</a></li>
+            <li><a href="#competences">Compétences</a></li>
+            <li><a href="#formation">Formation</a></li>
+
+            <li>
+                <a href="#contact" class="nav-contact">
+                    Contact
+                </a>
+            </li>
+
+        </ul>
+
+    </div>
+
 </header>
 
-<section class="hero" style="border-top:none;padding-top:10px;">
-  <div>
-    <div class="role-line">TRAVAIL SOCIAL — PROTECTION — MEAL</div>
-    <h1>Je conçois des systèmes qui <em>mesurent</em> ce que le travail social <em>change</em>.</h1>
-    <p class="tagline">Travailleur social et spécialiste MEAL basé à Jérémie, Grand'Anse. Intervention directe auprès des populations vulnérables (protection, PSEA, appui psychosocial) et conception de dispositifs de suivi-évaluation pour en mesurer l'impact.</p>
-    <div class="meta">
-      <span>📍 Jérémie, Grand'Anse, Haïti</span>
-      <span>💼 FHADIMAC</span>
-      <span>🎓 Spécialisation M&E — IUS/SIPDEC</span>
+
+
+<!-- =====================================================
+     HERO
+===================================================== -->
+
+<main id="accueil">
+
+<section class="hero">
+
+    <div class="container hero-grid">
+
+        <div class="reveal">
+
+            <div class="hero-label">
+                TRAVAIL SOCIAL · PROTECTION · MEAL · DATA
+            </div>
+
+            <h1>
+                Transformer les
+                <em>données</em>
+                en décisions utiles.
+            </h1>
+
+            <p class="hero-description">
+                Travailleur social spécialisé en suivi-évaluation,
+                avec une expérience à l'intersection du terrain,
+                de la protection, de la santé publique et de
+                l'analyse des données.
+            </p>
+
+            <div class="hero-buttons">
+
+                <a href="#contact" class="btn btn-primary">
+                    Me contacter →
+                </a>
+
+                <a
+                    href="CV_Kendy_Philippe.pdf"
+                    class="btn btn-secondary"
+                    target="_blank">
+                    Télécharger mon CV
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <div class="data-visual reveal">
+
+            <div class="visual-card">
+
+                <div class="visual-top">
+
+                    <span class="visual-title">
+                        MEAL Dashboard
+                    </span>
+
+                    <span class="status">
+                        DATA · ACTIVE
+                    </span>
+
+                </div>
+
+                <div class="chart">
+
+                    <div class="bar"></div>
+                    <div class="bar"></div>
+                    <div class="bar"></div>
+                    <div class="bar"></div>
+                    <div class="bar"></div>
+                    <div class="bar"></div>
+
+                </div>
+
+                <div class="visual-bottom">
+
+                    <div class="metric">
+                        <strong>R</strong>
+                        <span>Analyse</span>
+                    </div>
+
+                    <div class="metric">
+                        <strong>BI</strong>
+                        <span>Dashboard</span>
+                    </div>
+
+                    <div class="metric">
+                        <strong>GIS</strong>
+                        <span>Cartographie</span>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
     </div>
-    <div class="cta-row">
-      <a class="btn solid" href="#contact">Me contacter</a>
-      <a class="btn ghost" href="CV_Kendy_Philippe.pdf">Télécharger le CV</a>
-    </div>
-  </div>
-  <div class="graphic">
-    <svg viewBox="0 0 300 230" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <!-- axis -->
-      <line x1="20" y1="200" x2="280" y2="200" stroke="#D3CDBB" stroke-width="1"/>
-      <line x1="20" y1="20" x2="20" y2="200" stroke="#D3CDBB" stroke-width="1"/>
-      <!-- data line: MEAL -->
-      <polyline points="20,170 65,150 110,158 155,110 200,95 245,55 280,40" fill="none" stroke="#3E6B5C" stroke-width="2.5"/>
-      <circle cx="65" cy="150" r="4" fill="#3E6B5C"/>
-      <circle cx="155" cy="110" r="4" fill="#3E6B5C"/>
-      <circle cx="245" cy="55" r="4" fill="#3E6B5C"/>
-      <!-- protection markers: dots scattered representing case tracking -->
-      <circle cx="45" cy="185" r="5" fill="#B8862B" opacity="0.85"/>
-      <circle cx="95" cy="188" r="5" fill="#B8862B" opacity="0.85"/>
-      <circle cx="140" cy="182" r="5" fill="#B8862B" opacity="0.85"/>
-      <circle cx="185" cy="186" r="5" fill="#B8862B" opacity="0.6"/>
-      <circle cx="230" cy="180" r="5" fill="#B8862B" opacity="0.6"/>
-      <text x="20" y="215" font-family="IBM Plex Mono" font-size="9" fill="#4A5568">cas suivis</text>
-      <text x="230" y="35" font-family="IBM Plex Mono" font-size="9" fill="#4A5568">indicateurs</text>
-    </svg>
-  </div>
+
 </section>
 
-<section id="profil" class="profil">
-  <div class="eyebrow">01 — PROFIL</div>
-  <h2>Une double expertise, une seule pratique</h2>
-  <p>Je conçois et gère la collecte de données mobile (<strong>KoboToolbox, ODK Collect, ONA</strong>) et l'analyse/visualisation (<strong>R, Power BI, QGIS, SPSS, SQL</strong>) — non pas comme un technicien détaché du terrain, mais comme quelqu'un qui comprend directement les réalités que ces données représentent.</p>
-  <p>Mon expérience chez <strong>UNICEF Haïti</strong>, <strong>FHADIMAC</strong> et <strong>ICDH</strong> se situe à l'intersection du travail social, de la protection et de la donnée humanitaire. Titulaire d'un BACC+3 en Travail Social (UEH/FASCH), actuellement en spécialisation Monitoring & Évaluation (IUS/SIPDEC).</p>
-  <p>Ouvert aux missions de consultance MEAL, à la protection/PSEA, et aux collaborations avec ONG, agences des Nations Unies et organisations de développement.</p>
+
+
+<!-- =====================================================
+     STATS
+===================================================== -->
+
+<section class="stats">
+
+    <div class="container stats-grid">
+
+        <div class="stat">
+            <div class="stat-number">MEAL</div>
+            <div class="stat-label">
+                Suivi · Évaluation · Redevabilité
+            </div>
+        </div>
+
+        <div class="stat">
+            <div class="stat-number">Data</div>
+            <div class="stat-label">
+                Analyse · Visualisation
+            </div>
+        </div>
+
+        <div class="stat">
+            <div class="stat-number">Kobo</div>
+            <div class="stat-label">
+                Collecte mobile
+            </div>
+        </div>
+
+        <div class="stat">
+            <div class="stat-number">Haïti</div>
+            <div class="stat-label">
+                Terrain · Développement
+            </div>
+        </div>
+
+    </div>
+
 </section>
 
-<section id="expertise">
-  <div class="eyebrow">02 — DOMAINES D'EXPERTISE</div>
-  <h2>Terrain et donnée, en miroir</h2>
-  <div class="domaines">
-    <div class="domaine-col protection">
-      <h3>Protection & intervention sociale</h3>
-      <ul>
-        <li>Gestion de cas — protection de l'enfance</li>
-        <li>PSEA (Prévention de l'Exploitation et des Abus Sexuels)</li>
-        <li>Appui psychosocial</li>
-        <li>Référencement inter-agences</li>
-        <li>Sensibilisation communautaire / U-Report</li>
-        <li>Engagement des adolescents (SBC)</li>
-      </ul>
+
+
+<!-- =====================================================
+     PROFIL
+===================================================== -->
+
+<section class="section" id="profil">
+
+    <div class="container">
+
+        <div class="about-grid">
+
+            <div class="about-card reveal">
+
+                <h3>
+                    Terrain + Donnée
+                </h3>
+
+                <p>
+                    Une approche qui relie la compréhension
+                    des réalités sociales à la production
+                    d'informations utiles à la décision.
+                </p>
+
+            </div>
+
+
+            <div class="about-content reveal">
+
+                <div class="eyebrow">
+                    01 — Profil
+                </div>
+
+                <h2>
+                    Une double expertise au service
+                    de l'action sociale.
+                </h2>
+
+                <p>
+                    Ma pratique se situe à l'intersection du
+                    <strong>travail social</strong>,
+                    de la <strong>protection</strong>,
+                    de la <strong>santé publique</strong>
+                    et du <strong>suivi-évaluation</strong>.
+                </p>
+
+                <p>
+                    Je développe et utilise des outils de
+                    collecte mobile, de traitement, d'analyse
+                    et de visualisation afin de transformer
+                    les données de terrain en informations
+                    exploitables.
+                </p>
+
+                <p>
+                    Mon expérience auprès de structures telles
+                    qu'<strong>UNICEF Haïti</strong>,
+                    <strong>FHADIMAC</strong> et
+                    <strong>ICDH</strong> m'a permis de
+                    travailler directement avec les populations
+                    et les équipes de programme.
+                </p>
+
+            </div>
+
+        </div>
+
     </div>
-    <div class="domaine-col meal">
-      <h3>MEAL & données humanitaires</h3>
-      <ul>
-        <li>Conception de systèmes de suivi-évaluation</li>
-        <li>Échantillonnage statistique (méthode Cochran)</li>
-        <li>Collecte mobile — Kobo, ODK Collect, ONA</li>
-        <li>Analyse — R, Python, SPSS, SQL</li>
-        <li>Visualisation — Power BI / DAX, QGIS</li>
-        <li>Évaluation formative de programmes</li>
-      </ul>
-    </div>
-  </div>
+
 </section>
 
-<section id="projets" class="projets-section">
-  <div class="eyebrow">03 — PROJETS</div>
-  <h2>Portfolio technique</h2>
-  <div class="projets">
-    <div class="projet">
-      <span class="tag">R · ÉCHANTILLONNAGE</span>
-      <div>
-        <h3>Exercice d'échantillonnage SIPDEC</h3>
-        <p>Détermination de la taille d'échantillon par la méthode de Cochran (N=551 → n=227) pour une évaluation formative de programme.</p>
-        <div class="stack">R · statistiques d'enquête</div>
-        <br>
-        <a class="link" href="#" target="_blank">Voir sur GitHub →</a>
-      </div>
+
+
+<!-- =====================================================
+     EXPERTISE
+===================================================== -->
+
+<section class="section expertise" id="expertise">
+
+    <div class="container">
+
+        <div class="section-header reveal">
+
+            <div class="eyebrow">
+                02 — Expertise
+            </div>
+
+            <h2>
+                Deux domaines,
+                une même logique d'impact.
+            </h2>
+
+            <p class="section-intro">
+                Comprendre les besoins, structurer l'information,
+                analyser les résultats et contribuer à la décision.
+            </p>
+
+        </div>
+
+
+        <div class="expertise-grid">
+
+            <article class="expertise-card reveal">
+
+                <div class="icon">
+                    01
+                </div>
+
+                <h3>
+                    Protection & intervention sociale
+                </h3>
+
+                <ul class="expertise-list">
+
+                    <li>
+                        Protection de l'enfance
+                    </li>
+
+                    <li>
+                        Gestion et suivi de cas
+                    </li>
+
+                    <li>
+                        Appui psychosocial
+                    </li>
+
+                    <li>
+                        Référencement inter-agences
+                    </li>
+
+                    <li>
+                        PSEA
+                    </li>
+
+                    <li>
+                        Engagement des adolescents et des jeunes
+                    </li>
+
+                    <li>
+                        Sensibilisation communautaire
+                    </li>
+
+                </ul>
+
+            </article>
+
+
+            <article class="expertise-card reveal">
+
+                <div class="icon">
+                    02
+                </div>
+
+                <h3>
+                    MEAL & analyse de données
+                </h3>
+
+                <ul class="expertise-list">
+
+                    <li>
+                        Conception d'outils de suivi-évaluation
+                    </li>
+
+                    <li>
+                        Échantillonnage statistique
+                    </li>
+
+                    <li>
+                        Collecte mobile avec Kobo / ODK
+                    </li>
+
+                    <li>
+                        Nettoyage et contrôle qualité
+                    </li>
+
+                    <li>
+                        Analyse avec R / SPSS / Python
+                    </li>
+
+                    <li>
+                        Power BI / DAX
+                    </li>
+
+                    <li>
+                        QGIS et visualisation des données
+                    </li>
+
+                </ul>
+
+            </article>
+
+        </div>
+
     </div>
-    <div class="projet">
-      <span class="tag">R · ENQUÊTE MÉNAGE</span>
-      <div>
-        <h3>Nettoyage et analyse d'une enquête ménage</h3>
-        <p>Import, gestion des valeurs manquantes, variable de contrôle, dédoublonnage, jointure, statistiques descriptives et tests du Khi-deux sur des données socio-démographiques.</p>
-        <div class="stack">R · dplyr · ggplot2</div>
-        <br>
-        <a class="link" href="https://github.com/kphilippe24/analyse-r-enquete-menage" target="_blank">Voir sur GitHub →</a>
-      </div>
-    </div>
-    <div class="projet">
-      <span class="tag">EXCEL · TABLEAU DE BORD</span>
-      <div>
-        <h3>Analyse d'une base de données commerciale</h3>
-        <p>Structuration d'une base d'opérations commerciales et création d'un tableau de bord (8 graphiques, indicateurs clés) — projet SIPDEC, 6ᵉ cohorte.</p>
-        <div class="stack">Excel · TCD · Graphiques</div>
-        <br>
-        <a class="link" href="https://github.com/kphilippe24/tableau-de-bord-excel-ventes-fichiers-Projet_Excel.xlsx" target="_blank">Voir le projet →</a>
-      </div>
-    </div>
-    <div class="projet">
-      <span class="tag">POWER BI · SANTÉ</span>
-      <div>
-        <h3>Tableau de bord de suivi de patients</h3>
-        <p>Indicateurs clés (effectifs, répartition par sexe, âge moyen) et visualisations par statut clinique, tranche d'âge, niveau d'éducation et niveau socio-économique.</p>
-        <div class="stack">Power BI</div>
-        <br>
-        <a class="link" href="https://github.com/kphilippe24/dashboard-powerbi-patients-fichiers-Projet_final_Kendy_PHILIPPE.pbix-" target="_blank">Voir le projet →</a>
-      </div>
-    </div>
-  </div>
+
 </section>
 
-<section id="parcours">
-  <div class="eyebrow">04 — PARCOURS PROFESSIONNEL</div>
-  <h2>Expérience de terrain</h2>
-  <div class="timeline">
-    <div class="tl-item">
-      <div class="period">Mars 2024 — présent</div>
-      <h3>Travailleur social</h3>
-      <div class="org">FHADIMAC — Jérémie, Grand'Anse</div>
-      <p>Mise en œuvre de systèmes de suivi-évaluation pour des projets de santé publique ; animation de séances éducatives auprès de plus de 500 bénéficiaires/mois ; collaboration avec équipes programme et comités locaux.</p>
+
+
+<!-- =====================================================
+     PROJETS
+===================================================== -->
+
+<section class="section" id="projets">
+
+    <div class="container">
+
+        <div class="section-header reveal">
+
+            <div class="eyebrow">
+                03 — Portfolio
+            </div>
+
+            <h2>
+                Projets techniques.
+            </h2>
+
+            <p class="section-intro">
+                Quelques réalisations illustrant mes compétences
+                en statistiques, analyse de données et visualisation.
+            </p>
+
+        </div>
+
+
+        <div class="projects-grid">
+
+
+            <article class="project-card reveal">
+
+                <div class="project-number">
+                    PROJECT / 01
+                </div>
+
+                <h3>
+                    Échantillonnage statistique
+                </h3>
+
+                <p>
+                    Détermination de la taille d'échantillon
+                    selon la méthode de Cochran pour une
+                    évaluation formative de programme.
+                </p>
+
+                <div class="project-tools">
+                    <span>R</span>
+                    <span>Statistiques</span>
+                    <span>Cochran</span>
+                    <span>MEAL</span>
+                </div>
+
+                <!-- Remplacer # par le véritable lien GitHub -->
+                <a
+                    href="#"
+                    class="project-link"
+                    target="_blank">
+                    Voir le projet →
+                </a>
+
+            </article>
+
+
+
+            <article class="project-card reveal">
+
+                <div class="project-number">
+                    PROJECT / 02
+                </div>
+
+                <h3>
+                    Analyse d'une enquête ménage
+                </h3>
+
+                <p>
+                    Nettoyage, traitement des valeurs manquantes,
+                    dédoublonnage, jointures, statistiques
+                    descriptives et tests du Khi-deux.
+                </p>
+
+                <div class="project-tools">
+                    <span>R</span>
+                    <span>dplyr</span>
+                    <span>ggplot2</span>
+                    <span>Data Quality</span>
+                </div>
+
+                <a
+                    href="https://github.com/kphilippe24/analyse-r-enquete-menage"
+                    class="project-link"
+                    target="_blank">
+                    Voir sur GitHub →
+                </a>
+
+            </article>
+
+
+
+            <article class="project-card reveal">
+
+                <div class="project-number">
+                    PROJECT / 03
+                </div>
+
+                <h3>
+                    Tableau de bord commercial
+                </h3>
+
+                <p>
+                    Structuration d'une base de données et création
+                    d'un tableau de bord avec indicateurs clés
+                    et visualisations.
+                </p>
+
+                <div class="project-tools">
+                    <span>Excel</span>
+                    <span>TCD</span>
+                    <span>Dashboard</span>
+                    <span>DataViz</span>
+                </div>
+
+                <!-- Remplacer # par le véritable lien du dépôt -->
+                <a
+                    href="#"
+                    class="project-link"
+                    target="_blank">
+                    Voir le projet →
+                </a>
+
+            </article>
+
+
+
+            <article class="project-card reveal">
+
+                <div class="project-number">
+                    PROJECT / 04
+                </div>
+
+                <h3>
+                    Dashboard de suivi de patients
+                </h3>
+
+                <p>
+                    Visualisation d'indicateurs selon le sexe,
+                    l'âge, le statut clinique, le niveau
+                    d'éducation et la situation socio-économique.
+                </p>
+
+                <div class="project-tools">
+                    <span>Power BI</span>
+                    <span>DAX</span>
+                    <span>DataViz</span>
+                    <span>Santé</span>
+                </div>
+
+                <!-- Un fichier PBIX doit être hébergé correctement -->
+                <a
+                    href="#"
+                    class="project-link"
+                    target="_blank">
+                    Voir le projet →
+                </a>
+
+            </article>
+
+        </div>
+
     </div>
-    <div class="tl-item">
-      <div class="period">Juin — Août 2026</div>
-      <h3>Évaluateur — Séminaires SIPDEC (2017–2026)</h3>
-      <div class="org">SIPDEC</div>
-      <p>Méthodologie d'échantillonnage statistique (formule de Cochran, N=551 → n=227) pour l'évaluation formative de 14 séminaires ; collecte et analyse auprès de 551 participants ; rédaction du rapport et recommandations.</p>
-    </div>
-    <div class="tl-item">
-      <div class="period">Décembre 2025 (1 mois)</div>
-      <h3>Animateur — Recherche sur les VBG</h3>
-      <div class="org">Brigade d'Intervention Médicale (BIM) — Grand'Anse</div>
-      <p>Organisation et animation de focus groups ; réalisation et analyse d'entretiens clés avec les parties prenantes.</p>
-    </div>
-    <div class="tl-item">
-      <div class="period">Décembre 2025 (1 mois)</div>
-      <h3>Projet académique — Gouvernance locale</h3>
-      <div class="org">Commune de Kenscoff</div>
-      <p>Conception d'outils de collecte (KoboToolbox/ONA) pour un cadre de suivi-évaluation et un cadre logique ; analyse de données (Excel, SPSS, R) et recommandations pour la prise de décision locale.</p>
-    </div>
-    <div class="tl-item">
-      <div class="period">Décembre 2023 — Mai 2024</div>
-      <h3>Stagiaire, Engagement des adolescents et des jeunes</h3>
-      <div class="org">UNICEF Haïti</div>
-      <p>Conception d'outils de collecte pour des campagnes sur l'égalité de genre, mobilisant plus de 5 000 jeunes via U-Report ; analyse de données pour appuyer la prise de décision.</p>
-    </div>
-    <div class="tl-item">
-      <div class="period">Avril — Septembre 2023</div>
-      <h3>Stagiaire, Agent de protection</h3>
-      <div class="org">ICDH</div>
-      <p>Suivi et documentation d'environ 20 dossiers de protection de l'enfance ; préparation de rapports de performance narratifs et GTPE ; une dizaine de référencements inter-agences.</p>
-    </div>
-    <div class="tl-item">
-      <div class="period">Décembre 2022 (1 mois)</div>
-      <h3>Animateur et Transcripteur</h3>
-      <div class="org">Mercy Corps — Beaumont, Grand'Anse</div>
-      <p>Planification et gestion du travail de terrain pour la collecte de données qualitatives ; coordination avec leaders et autorités locales ; rapports quotidiens et synthèses de focus groups.</p>
-    </div>
-  </div>
+
 </section>
 
-<section id="certifications">
-  <div class="eyebrow">05 — CERTIFICATIONS</div>
-  <h2>Formations complémentaires</h2>
-  <div class="toolkit">
-    <span>Analyse de données avec R — SIPDEC, 2026</span>
-    <span>Tableaux de bord Power BI — SIPDEC, 2026</span>
-    <span>Social Norms, Social Change I — UPenn/UNICEF, 2025</span>
-    <span>Social Work Practice — Univ. of Michigan, 2025</span>
-    <span>PSEA — AGORA UNICEF, 2023</span>
-    <span>GBV Disclosure Response — DisasterReady, 2022</span>
-    <span>Droit international humanitaire — HLA, 2023</span>
-    <span>Genre : enjeux et violences — Univ. de Genève, 2025</span>
-    <span>Égalité femmes-hommes — OIF, 2022</span>
-  </div>
+
+
+<!-- =====================================================
+     PARCOURS
+===================================================== -->
+
+<section class="section timeline-section" id="parcours">
+
+    <div class="container">
+
+        <div class="section-header reveal">
+
+            <div class="eyebrow">
+                04 — Parcours
+            </div>
+
+            <h2>
+                Expérience de terrain.
+            </h2>
+
+        </div>
+
+
+        <div class="timeline">
+
+
+            <div class="timeline-item reveal">
+
+                <div class="timeline-dot"></div>
+
+                <div class="timeline-period">
+                    MARS 2024 — PRÉSENT
+                </div>
+
+                <h3>
+                    Travailleur social
+                </h3>
+
+                <div class="timeline-org">
+                    FHADIMAC — Jérémie, Grand'Anse
+                </div>
+
+                <p>
+                    Accompagnement psychosocial, gestion des
+                    dossiers sociaux, appui aux activités de
+                    sensibilisation et collecte de données
+                    liées aux activités du centre.
+                </p>
+
+            </div>
+
+
+
+            <div class="timeline-item reveal">
+
+                <div class="timeline-dot"></div>
+
+                <div class="timeline-period">
+                    JUIN — AOÛT 2026
+                </div>
+
+                <h3>
+                    Évaluateur — Séminaires SIPDEC
+                </h3>
+
+                <div class="timeline-org">
+                    SIPDEC
+                </div>
+
+                <p>
+                    Travail d'évaluation formative comprenant
+                    l'échantillonnage, la collecte, l'analyse
+                    des données et la formulation de recommandations.
+                </p>
+
+            </div>
+
+
+
+            <div class="timeline-item reveal">
+
+                <div class="timeline-dot"></div>
+
+                <div class="timeline-period">
+                    DÉCEMBRE 2025
+                </div>
+
+                <h3>
+                    Animateur — Recherche sur les VBG
+                </h3>
+
+                <div class="timeline-org">
+                    Brigade d'Intervention Médicale — Grand'Anse
+                </div>
+
+                <p>
+                    Animation de focus groups et réalisation
+                    d'entretiens avec des parties prenantes.
+                </p>
+
+            </div>
+
+
+
+            <div class="timeline-item reveal">
+
+                <div class="timeline-dot"></div>
+
+                <div class="timeline-period">
+                    DÉCEMBRE 2025
+                </div>
+
+                <h3>
+                    Projet académique — Gouvernance locale
+                </h3>
+
+                <div class="timeline-org">
+                    Commune de Kenscoff
+                </div>
+
+                <p>
+                    Conception d'outils de collecte et de suivi-évaluation,
+                    analyse de données et formulation de recommandations.
+                </p>
+
+            </div>
+
+
+
+            <div class="timeline-item reveal">
+
+                <div class="timeline-dot"></div>
+
+                <div class="timeline-period">
+                    DÉCEMBRE 2023 — MAI 2024
+                </div>
+
+                <h3>
+                    Stagiaire — Engagement des adolescents et des jeunes
+                </h3>
+
+                <div class="timeline-org">
+                    UNICEF Haïti
+                </div>
+
+                <p>
+                    Appui aux activités d'engagement des jeunes,
+                    conception d'outils de collecte et analyse
+                    de données.
+                </p>
+
+            </div>
+
+
+
+            <div class="timeline-item reveal">
+
+                <div class="timeline-dot"></div>
+
+                <div class="timeline-period">
+                    AVRIL — SEPTEMBRE 2023
+                </div>
+
+                <h3>
+                    Stagiaire — Agent de protection
+                </h3>
+
+                <div class="timeline-org">
+                    ICDH
+                </div>
+
+                <p>
+                    Suivi et documentation de dossiers de protection
+                    de l'enfance, référencement et reporting.
+                </p>
+
+            </div>
+
+
+
+            <div class="timeline-item reveal">
+
+                <div class="timeline-dot"></div>
+
+                <div class="timeline-period">
+                    DÉCEMBRE 2022
+                </div>
+
+                <h3>
+                    Animateur & Transcripteur
+                </h3>
+
+                <div class="timeline-org">
+                    Mercy Corps — Grand'Anse
+                </div>
+
+                <p>
+                    Collecte de données qualitatives, coordination
+                    avec les acteurs locaux et synthèse des
+                    informations issues des focus groups.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
 </section>
 
-<section id="toolkit-section">
-  <div class="eyebrow">06 — BOÎTE À OUTILS</div>
-  <h2>Outils techniques</h2>
-  <div class="toolkit">
-    <span>R</span><span>SPSS</span><span>SQL / PostgreSQL</span><span>Power BI</span><span>QGIS</span>
-    <span>KoboToolbox</span><span>ODK Collect</span><span>ONA</span><span>Google Forms</span>
-    <span>Excel avancé</span><span>Word</span><span>PowerPoint</span>
-  </div>
+
+
+<!-- =====================================================
+     COMPETENCES
+===================================================== -->
+
+<section class="section" id="competences">
+
+    <div class="container">
+
+        <div class="section-header reveal">
+
+            <div class="eyebrow">
+                05 — Compétences techniques
+            </div>
+
+            <h2>
+                Mon environnement de travail.
+            </h2>
+
+        </div>
+
+
+        <div class="skills-grid">
+
+            <div>
+
+                <div class="skill">
+                    <div class="skill-header">
+                        <span>R / statistiques</span>
+                        <span>Avancé</span>
+                    </div>
+
+                    <div class="progress">
+                        <div
+                            class="progress-bar"
+                            data-width="82%">
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="skill">
+                    <div class="skill-header">
+                        <span>Excel / Data Quality</span>
+                        <span>Avancé</span>
+                    </div>
+
+                    <div class="progress">
+                        <div
+                            class="progress-bar"
+                            data-width="88%">
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="skill">
+                    <div class="skill-header">
+                        <span>Power BI / DAX</span>
+                        <span>Intermédiaire</span>
+                    </div>
+
+                    <div class="progress">
+                        <div
+                            class="progress-bar"
+                            data-width="75%">
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="skill">
+                    <div class="skill-header">
+                        <span>SPSS</span>
+                        <span>Intermédiaire</span>
+                    </div>
+
+                    <div class="progress">
+                        <div
+                            class="progress-bar"
+                            data-width="70%">
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+
+            <div>
+
+                <div class="skill">
+                    <div class="skill-header">
+                        <span>KoboToolbox / ODK</span>
+                        <span>Avancé</span>
+                    </div>
+
+                    <div class="progress">
+                        <div
+                            class="progress-bar"
+                            data-width="86%">
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="skill">
+                    <div class="skill-header">
+                        <span>QGIS</span>
+                        <span>Intermédiaire</span>
+                    </div>
+
+                    <div class="progress">
+                        <div
+                            class="progress-bar"
+                            data-width="68%">
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="skill">
+                    <div class="skill-header">
+                        <span>SQL / PostgreSQL</span>
+                        <span>Intermédiaire</span>
+                    </div>
+
+                    <div class="progress">
+                        <div
+                            class="progress-bar"
+                            data-width="62%">
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="skill">
+                    <div class="skill-header">
+                        <span>Python</span>
+                        <span>En développement</span>
+                    </div>
+
+                    <div class="progress">
+                        <div
+                            class="progress-bar"
+                            data-width="50%">
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
 </section>
 
-<section id="formation">
-  <div class="eyebrow">07 — FORMATION</div>
-  <h2>Formation académique</h2>
-  <div class="formation-item">
-    <h3>Diplôme de spécialisation en Suivi & Évaluation (en cours)</h3>
-    <div class="org">SIPDEC / IUS, Port-au-Prince — 2025–2026</div>
-  </div>
-  <div class="formation-item">
-    <h3>Licence en Travail social</h3>
-    <div class="org">UEH / FASCH, Port-au-Prince — 2016–2020</div>
-  </div>
+
+
+<!-- =====================================================
+     FORMATION
+===================================================== -->
+
+<section class="section expertise" id="formation">
+
+    <div class="container">
+
+        <div class="section-header reveal">
+
+            <div class="eyebrow">
+                06 — Formation
+            </div>
+
+            <h2>
+                Formation académique.
+            </h2>
+
+        </div>
+
+
+        <div class="education-grid">
+
+
+            <article class="education-card reveal">
+
+                <div class="education-year">
+                    2025 — 2026
+                </div>
+
+                <h3>
+                    Diplôme de spécialisation
+                    en Suivi & Évaluation
+                </h3>
+
+                <div class="education-org">
+                    SIPDEC / IUS — Port-au-Prince
+                </div>
+
+            </article>
+
+
+            <article class="education-card reveal">
+
+                <div class="education-year">
+                    2016 — 2020
+                </div>
+
+                <h3>
+                    Formation en Travail social
+                </h3>
+
+                <div class="education-org">
+                    UEH / FASCH — Port-au-Prince
+                </div>
+
+            </article>
+
+        </div>
+
+    </div>
+
 </section>
 
-<footer id="contact">
-  <div class="eyebrow">08 — CONTACT</div>
-  <h2>Discutons de votre programme</h2>
-  <p>Disponible pour des missions de consultance MEAL, protection/PSEA, en Haïti ou à distance. Mobilité géographique sur l'ensemble du territoire national.</p>
-  <div class="contact-links">
-    <a href="mailto:kendyphilippe4@gmail.com">kendyphilippe4@gmail.com</a>
-    <a href="tel:+50948824055">+509 4882-4055</a>
-  <a href="https://www.linkedin.com/in/kendy-philippe-14229818b" target="_blank">LinkedIn</a>
-    <a href="#" target="_blank">GitHub</a>
-  </div>
-  <div class="langs">
-    <span>Français — courant (C2, langue de travail)</span>
-    <span>Créole haïtien — langue maternelle</span>
-    <span>Anglais — professionnel (B2)</span>
-  </div>
-  <div class="fine-print">Portfolio de Kendy Philippe, TS avec une Spécialisation en Suivi et Évaluation.</div>
+
+
+<!-- =====================================================
+     CERTIFICATIONS
+===================================================== -->
+
+<section class="section">
+
+    <div class="container">
+
+        <div class="section-header reveal">
+
+            <div class="eyebrow">
+                07 — Certifications
+            </div>
+
+            <h2>
+                Formations complémentaires.
+            </h2>
+
+        </div>
+
+
+        <div class="certifications reveal">
+
+            <span class="cert">
+                Analyse de données avec R — SIPDEC
+            </span>
+
+            <span class="cert">
+                Power BI — SIPDEC
+            </span>
+
+            <span class="cert">
+                Social Norms & Social Change — UPenn / UNICEF
+            </span>
+
+            <span class="cert">
+                Social Work Practice — University of Michigan
+            </span>
+
+            <span class="cert">
+                PSEA — AGORA UNICEF
+            </span>
+
+            <span class="cert">
+                GBV Disclosure Response — DisasterReady
+            </span>
+
+            <span class="cert">
+                Droit international humanitaire — HLA
+            </span>
+
+            <span class="cert">
+                Genre & violences — Université de Genève
+            </span>
+
+            <span class="cert">
+                Égalité femmes-hommes — OIF
+            </span>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     CONTACT
+===================================================== -->
+
+<section class="section contact" id="contact">
+
+    <div class="container">
+
+        <div class="eyebrow">
+            08 — Contact
+        </div>
+
+        <h2>
+            Construisons des projets
+            fondés sur les données.
+        </h2>
+
+        <p class="contact-description">
+            Disponible pour des missions et collaborations
+            en suivi-évaluation, analyse de données, protection,
+            recherche sociale et projets de développement.
+        </p>
+
+
+        <div class="contact-links">
+
+            <a
+                href="mailto:kendyphilippe4@gmail.com"
+                class="contact-link">
+                Email
+            </a>
+
+            <a
+                href="tel:+50948824055"
+                class="contact-link">
+                Téléphone
+            </a>
+
+            <a
+                href="https://www.linkedin.com/in/kendy-philippe-14229818b"
+                class="contact-link"
+                target="_blank"
+                rel="noopener">
+                LinkedIn
+            </a>
+
+            <a
+                href="#"
+                class="contact-link"
+                target="_blank"
+                rel="noopener">
+                GitHub
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+</main>
+
+
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
+<footer>
+
+    <div class="container footer-inner">
+
+        <div class="footer-name">
+            Kendy Philippe
+        </div>
+
+        <div>
+            Travail social · MEAL · Data · Protection
+        </div>
+
+        <div>
+            © <span id="year"></span>
+        </div>
+
+    </div>
+
 </footer>
+
+
+
+<script>
+
+/* =========================================================
+   HEADER SCROLL
+========================================================= */
+
+const header = document.getElementById("header");
+
+window.addEventListener("scroll", () => {
+
+    if (window.scrollY > 30) {
+        header.classList.add("scrolled");
+    } else {
+        header.classList.remove("scrolled");
+    }
+
+});
+
+
+/* =========================================================
+   MOBILE MENU
+========================================================= */
+
+const menuToggle = document.getElementById("menuToggle");
+const navLinks = document.getElementById("navLinks");
+
+menuToggle.addEventListener("click", () => {
+
+    navLinks.classList.toggle("active");
+
+});
+
+
+document.querySelectorAll(".nav-links a").forEach(link => {
+
+    link.addEventListener("click", () => {
+
+        navLinks.classList.remove("active");
+
+    });
+
+});
+
+
+/* =========================================================
+   SCROLL REVEAL
+========================================================= */
+
+const revealElements =
+    document.querySelectorAll(".reveal");
+
+const revealObserver =
+    new IntersectionObserver(
+        entries => {
+
+            entries.forEach(entry => {
+
+                if (entry.isIntersecting) {
+
+                    entry.target.classList.add("active");
+
+                    revealObserver.unobserve(entry.target);
+
+                }
+
+            });
+
+        },
+        {
+            threshold: .12
+        }
+    );
+
+
+revealElements.forEach(element => {
+
+    revealObserver.observe(element);
+
+});
+
+
+/* =========================================================
+   SKILL BARS
+========================================================= */
+
+const progressBars =
+    document.querySelectorAll(".progress-bar");
+
+const skillObserver =
+    new IntersectionObserver(
+        entries => {
+
+            entries.forEach(entry => {
+
+                if (entry.isIntersecting) {
+
+                    const bar = entry.target;
+
+                    bar.style.width =
+                        bar.dataset.width;
+
+                    skillObserver.unobserve(bar);
+
+                }
+
+            });
+
+        },
+        {
+            threshold: .4
+        }
+    );
+
+
+progressBars.forEach(bar => {
+
+    skillObserver.observe(bar);
+
+});
+
+
+/* =========================================================
+   CURRENT YEAR
+========================================================= */
+
+document.getElementById("year").textContent =
+    new Date().getFullYear();
+
+
+/* =========================================================
+   SMOOTH ACTIVE NAVIGATION
+========================================================= */
+
+const sections =
+    document.querySelectorAll("section[id]");
+
+const navItems =
+    document.querySelectorAll(".nav-links a");
+
+window.addEventListener("scroll", () => {
+
+    let current = "";
+
+    sections.forEach(section => {
+
+        const sectionTop =
+            section.offsetTop - 120;
+
+        if (window.scrollY >= sectionTop) {
+            current = section.getAttribute("id");
+        }
+
+    });
+
+    navItems.forEach(link => {
+
+        link.style.color = "";
+
+        if (
+            link.getAttribute("href") ===
+            "#" + current
+        ) {
+            link.style.color =
+                "var(--teal)";
+        }
+
+    });
+
+});
+
+</script>
 
 </body>
 </html>
