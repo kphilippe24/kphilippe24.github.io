@@ -2689,7 +2689,25 @@ progressBars.forEach(bar => {
     skillObserver.observe(bar);
 
 });
+/* =========================================================
+   TOUJOURS REVENIR EN HAUT AU RECHARGEMENT
+========================================================= */
 
+if ('scrollRestoration' in history) {
+    history.scrollRestoration = 'manual';
+}
+
+window.addEventListener('load', () => {
+    window.scrollTo(0, 0);
+
+    if (window.location.hash) {
+        history.replaceState(
+            null,
+            '',
+            window.location.pathname + window.location.search
+        );
+    }
+});
 
 /* =========================================================
    CURRENT YEAR
