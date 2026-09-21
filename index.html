@@ -1,517 +1,2764 @@
- <!-- =====================================================
-     OPTION LANGUE FR / EN
-     À coller juste avant </body>
-===================================================== -->
+ <!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Kendy PHILIPPE | Travail social · MEAL · Data</title>
+
+<meta name="description"
+      content="Portfolio professionnel de Kendy PHILIPPE — Travail social, protection, suivi-évaluation et analyse de données.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
+      rel="stylesheet">
 
 <style>
+
 /* =========================================================
-   SÉLECTEUR DE LANGUE
+   VARIABLES
 ========================================================= */
 
-.lang-switch {
-    display: inline-flex;
+:root {
+    --navy: #0b1f33;
+    --navy-2: #102b44;
+    --teal: #147d72;
+    --teal-light: #dff3ef;
+    --gold: #c9973e;
+    --gold-light: #f5ead5;
 
-    border: 1px solid var(--border);
-    border-radius: 8px;
+    --cream: #f7f6f1;
+    --white: #ffffff;
+    --text: #172536;
+    --muted: #657181;
+    --border: #dde2e6;
 
-    background: var(--white);
+    --shadow: 0 20px 50px rgba(11, 31, 51, .08);
 
-    overflow: hidden;
+    --radius: 18px;
+    --transition: .35s ease;
 }
 
-.lang-switch button {
-    border: 0;
-    background: transparent;
 
-    cursor: pointer;
+/* =========================================================
+   RESET
+========================================================= */
 
-    padding: 8px 11px;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 90px;
+}
+
+body {
+    font-family: "DM Sans", sans-serif;
+    background: var(--cream);
+    color: var(--text);
+    line-height: 1.7;
+    overflow-x: hidden;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+a {
+    color: inherit;
+}
+
+button {
+    font: inherit;
+}
+
+
+/* =========================================================
+   GLOBAL
+========================================================= */
+
+.container {
+    width: min(1180px, 92%);
+    margin: auto;
+}
+
+.section {
+    padding: 110px 0;
+}
+
+.section-header {
+    max-width: 720px;
+    margin-bottom: 55px;
+}
+
+.eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
 
     font-family: "JetBrains Mono", monospace;
     font-size: 12px;
     font-weight: 500;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+
+    color: var(--teal);
+    margin-bottom: 16px;
+}
+
+.eyebrow::before {
+    content: "";
+    width: 28px;
+    height: 2px;
+    background: var(--gold);
+}
+
+h1,
+h2,
+h3 {
+    font-family: "Playfair Display", serif;
+    line-height: 1.15;
+    color: var(--navy);
+}
+
+h2 {
+    font-size: clamp(2rem, 4vw, 3rem);
+}
+
+.section-intro {
+    margin-top: 18px;
+    color: var(--muted);
+    font-size: 17px;
+}
+
+.highlight {
+    color: var(--teal);
+}
+
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+
+    z-index: 1000;
+
+    background: rgba(247, 246, 241, .88);
+    backdrop-filter: blur(14px);
+
+    border-bottom: 1px solid rgba(221, 226, 230, .75);
+
+    transition: var(--transition);
+}
+
+header.scrolled {
+    box-shadow: 0 10px 30px rgba(11, 31, 51, .07);
+}
+
+.navbar {
+    height: 76px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo {
+    text-decoration: none;
+    font-family: "Playfair Display", serif;
+    font-size: 21px;
+    font-weight: 700;
+    color: var(--navy);
+}
+
+.logo span {
+    color: var(--teal);
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    list-style: none;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--muted);
+    font-size: 14px;
+    font-weight: 500;
+
+    position: relative;
+
+    transition: var(--transition);
+}
+
+.nav-links a::after {
+    content: "";
+
+    position: absolute;
+    left: 0;
+    bottom: -8px;
+
+    width: 0;
+    height: 2px;
+
+    background: var(--teal);
+
+    transition: var(--transition);
+}
+
+.nav-links a:hover {
+    color: var(--navy);
+}
+
+.nav-links a:hover::after {
+    width: 100%;
+}
+
+.nav-contact {
+    padding: 10px 17px;
+
+    border: 1px solid var(--navy);
+    border-radius: 8px;
+
+    color: var(--navy) !important;
+}
+
+.nav-contact:hover {
+    background: var(--navy);
+    color: white !important;
+}
+
+.menu-toggle {
+    display: none;
+
+    border: 0;
+    background: transparent;
+
+    font-size: 25px;
+    cursor: pointer;
+}
+
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.hero {
+    min-height: 100vh;
+
+    display: flex;
+    align-items: center;
+
+    position: relative;
+
+    padding-top: 100px;
+
+    overflow: hidden;
+}
+
+.hero::before {
+    content: "";
+
+    position: absolute;
+
+    width: 600px;
+    height: 600px;
+
+    border-radius: 50%;
+
+    background: rgba(20, 125, 114, .07);
+
+    top: -220px;
+    right: -200px;
+
+    animation: float 8s ease-in-out infinite;
+}
+
+.hero::after {
+    content: "";
+
+    position: absolute;
+
+    width: 400px;
+    height: 400px;
+
+    border-radius: 50%;
+
+    border: 1px solid rgba(201, 151, 62, .15);
+
+    bottom: -180px;
+    left: -150px;
+
+    animation: float 10s ease-in-out infinite reverse;
+}
+
+.hero-grid {
+    display: grid;
+
+    grid-template-columns: 1.15fr .85fr;
+
+    gap: 80px;
+
+    align-items: center;
+
+    position: relative;
+    z-index: 2;
+}
+
+.hero-label {
+    font-family: "JetBrains Mono", monospace;
+
+    color: var(--teal);
+
+    font-size: 13px;
+
     letter-spacing: .04em;
+
+    margin-bottom: 22px;
+}
+
+.hero h1 {
+    font-size: clamp(3rem, 6vw, 5.3rem);
+
+    letter-spacing: -.04em;
+
+    max-width: 780px;
+}
+
+.hero h1 em {
+    color: var(--gold);
+    font-style: normal;
+}
+
+.hero-description {
+    max-width: 650px;
+
+    margin-top: 28px;
+
+    color: var(--muted);
+
+    font-size: 18px;
+}
+
+.hero-buttons {
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 14px;
+
+    margin-top: 34px;
+}
+
+.btn {
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 9px;
+
+    padding: 13px 21px;
+
+    border-radius: 9px;
+
+    text-decoration: none;
+
+    font-size: 14px;
+    font-weight: 600;
+
+    transition: var(--transition);
+}
+
+.btn-primary {
+    background: var(--navy);
+    color: white;
+
+    box-shadow: 0 10px 25px rgba(11, 31, 51, .16);
+}
+
+.btn-primary:hover {
+    background: var(--teal);
+    transform: translateY(-3px);
+}
+
+.btn-secondary {
+    border: 1px solid var(--border);
+    background: white;
+    color: var(--navy);
+}
+
+.btn-secondary:hover {
+    border-color: var(--teal);
+    color: var(--teal);
+
+    transform: translateY(-3px);
+}
+
+
+/* =========================================================
+   HERO VISUAL
+========================================================= */
+
+.data-visual {
+    position: relative;
+
+    min-height: 450px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+}
+
+.visual-card {
+    width: 360px;
+
+    background: rgba(255, 255, 255, .9);
+
+    border: 1px solid var(--border);
+
+    border-radius: 24px;
+
+    padding: 28px;
+
+    box-shadow: var(--shadow);
+
+    transform: rotate(2deg);
+
+    animation: cardFloat 6s ease-in-out infinite;
+}
+
+.visual-top {
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    margin-bottom: 25px;
+}
+
+.visual-title {
+    font-weight: 700;
+    color: var(--navy);
+}
+
+.status {
+    font-family: "JetBrains Mono", monospace;
+
+    font-size: 10px;
+
+    color: var(--teal);
+
+    background: var(--teal-light);
+
+    padding: 5px 9px;
+
+    border-radius: 20px;
+}
+
+.chart {
+    height: 190px;
+
+    display: flex;
+
+    align-items: end;
+
+    gap: 12px;
+
+    padding: 20px;
+
+    border-radius: 14px;
+
+    background:
+        linear-gradient(
+            to bottom,
+            transparent 24%,
+            #e9edf0 25%,
+            transparent 26%,
+            transparent 49%,
+            #e9edf0 50%,
+            transparent 51%,
+            transparent 74%,
+            #e9edf0 75%,
+            transparent 76%
+        );
+}
+
+.bar {
+    flex: 1;
+
+    background: var(--teal);
+
+    border-radius: 5px 5px 2px 2px;
+
+    transform-origin: bottom;
+
+    animation: growBar 1.2s ease forwards;
+}
+
+.bar:nth-child(1) { height: 35%; animation-delay: .1s; }
+.bar:nth-child(2) { height: 52%; animation-delay: .2s; }
+.bar:nth-child(3) { height: 44%; animation-delay: .3s; }
+.bar:nth-child(4) { height: 67%; animation-delay: .4s; }
+.bar:nth-child(5) { height: 74%; animation-delay: .5s; }
+.bar:nth-child(6) { height: 91%; animation-delay: .6s; }
+
+.visual-bottom {
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 10px;
+
+    margin-top: 20px;
+}
+
+.metric {
+    background: var(--cream);
+
+    border-radius: 10px;
+
+    padding: 12px;
+}
+
+.metric strong {
+    display: block;
+
+    color: var(--navy);
+
+    font-size: 18px;
+}
+
+.metric span {
+    font-size: 10px;
+    color: var(--muted);
+}
+
+
+/* =========================================================
+   STATS
+========================================================= */
+
+.stats {
+    padding: 28px 0;
+
+    background: var(--navy);
+
+    color: white;
+}
+
+.stats-grid {
+    display: grid;
+
+    grid-template-columns: repeat(4, 1fr);
+
+    gap: 20px;
+}
+
+.stat {
+    text-align: center;
+
+    padding: 10px;
+
+    border-right: 1px solid rgba(255,255,255,.12);
+}
+
+.stat:last-child {
+    border-right: 0;
+}
+
+.stat-number {
+    font-family: "Playfair Display", serif;
+
+    font-size: 30px;
+
+    color: white;
+}
+
+.stat-label {
+    font-size: 12px;
+
+    color: rgba(255,255,255,.65);
+
+    margin-top: 2px;
+}
+
+
+/* =========================================================
+   ABOUT
+========================================================= */
+
+.about-grid {
+    display: grid;
+
+    grid-template-columns: .8fr 1.2fr;
+
+    gap: 70px;
+
+    align-items: start;
+}
+
+.about-card {
+    background: var(--navy);
+
+    color: white;
+
+    padding: 38px;
+
+    border-radius: var(--radius);
+
+    position: relative;
+
+    overflow: hidden;
+}
+
+.about-card::before {
+    content: "";
+
+    position: absolute;
+
+    width: 180px;
+    height: 180px;
+
+    border: 1px solid rgba(255,255,255,.12);
+
+    border-radius: 50%;
+
+    right: -70px;
+    top: -70px;
+}
+
+.about-card h3 {
+    color: white;
+
+    font-size: 28px;
+
+    margin-bottom: 15px;
+}
+
+.about-card p {
+    color: rgba(255,255,255,.72);
+
+    font-size: 15px;
+}
+
+.about-content p {
+    color: var(--muted);
+
+    margin-bottom: 18px;
+
+    font-size: 16px;
+}
+
+.about-content strong {
+    color: var(--navy);
+}
+
+
+/* =========================================================
+   EXPERTISE
+========================================================= */
+
+.expertise {
+    background: white;
+}
+
+.expertise-grid {
+    display: grid;
+
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 24px;
+}
+
+.expertise-card {
+    padding: 35px;
+
+    border: 1px solid var(--border);
+
+    border-radius: var(--radius);
+
+    transition: var(--transition);
+
+    background: white;
+}
+
+.expertise-card:hover {
+    transform: translateY(-8px);
+
+    box-shadow: var(--shadow);
+
+    border-color: transparent;
+}
+
+.icon {
+    width: 50px;
+    height: 50px;
+
+    display: grid;
+    place-items: center;
+
+    border-radius: 12px;
+
+    background: var(--teal-light);
+
+    color: var(--teal);
+
+    font-weight: 700;
+
+    margin-bottom: 23px;
+}
+
+.expertise-card:nth-child(2) .icon {
+    background: var(--gold-light);
+    color: var(--gold);
+}
+
+.expertise-card h3 {
+    font-size: 24px;
+
+    margin-bottom: 18px;
+}
+
+.expertise-list {
+    list-style: none;
+}
+
+.expertise-list li {
+    color: var(--muted);
+
+    font-size: 14px;
+
+    padding: 9px 0;
+
+    border-bottom: 1px dashed var(--border);
+}
+
+.expertise-list li:last-child {
+    border-bottom: 0;
+}
+
+.expertise-list li::before {
+    content: "→";
+
+    color: var(--teal);
+
+    margin-right: 10px;
+}
+
+
+/* =========================================================
+   PROJECTS
+========================================================= */
+
+.projects-grid {
+    display: grid;
+
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 22px;
+}
+
+.project-card {
+    background: white;
+
+    border: 1px solid var(--border);
+
+    border-radius: var(--radius);
+
+    padding: 30px;
+
+    position: relative;
+
+    overflow: hidden;
+
+    transition: var(--transition);
+}
+
+.project-card:hover {
+    transform: translateY(-7px);
+
+    box-shadow: var(--shadow);
+}
+
+.project-number {
+    font-family: "JetBrains Mono", monospace;
+
+    font-size: 11px;
+
+    color: var(--gold);
+
+    margin-bottom: 20px;
+}
+
+.project-card h3 {
+    font-size: 22px;
+
+    margin-bottom: 12px;
+}
+
+.project-card p {
+    color: var(--muted);
+
+    font-size: 14px;
+
+    margin-bottom: 20px;
+}
+
+.project-tools {
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 7px;
+
+    margin-bottom: 23px;
+}
+
+.project-tools span {
+    font-family: "JetBrains Mono", monospace;
+
+    font-size: 10px;
+
+    background: var(--cream);
+
+    border: 1px solid var(--border);
+
+    padding: 5px 8px;
+
+    border-radius: 5px;
+}
+
+.project-link {
+    text-decoration: none;
+
+    font-size: 13px;
+
+    font-weight: 600;
+
+    color: var(--teal);
+}
+
+.project-link:hover {
+    color: var(--gold);
+}
+
+
+/* =========================================================
+   TIMELINE
+========================================================= */
+
+.timeline-section {
+    background: white;
+}
+
+.timeline {
+    max-width: 850px;
+
+    margin: auto;
+
+    position: relative;
+}
+
+.timeline::before {
+    content: "";
+
+    position: absolute;
+
+    left: 8px;
+    top: 0;
+    bottom: 0;
+
+    width: 2px;
+
+    background: var(--border);
+}
+
+.timeline-item {
+    position: relative;
+
+    padding-left: 45px;
+
+    padding-bottom: 48px;
+}
+
+.timeline-item:last-child {
+    padding-bottom: 0;
+}
+
+.timeline-dot {
+    position: absolute;
+
+    left: 0;
+    top: 4px;
+
+    width: 18px;
+    height: 18px;
+
+    border-radius: 50%;
+
+    background: white;
+
+    border: 4px solid var(--teal);
+
+    z-index: 2;
+}
+
+.timeline-period {
+    font-family: "JetBrains Mono", monospace;
+
+    color: var(--teal);
+
+    font-size: 11px;
+
+    margin-bottom: 8px;
+}
+
+.timeline-item h3 {
+    font-size: 21px;
+
+    margin-bottom: 3px;
+}
+
+.timeline-org {
+    color: var(--gold);
+
+    font-size: 13px;
+
+    font-weight: 600;
+
+    margin-bottom: 9px;
+}
+
+.timeline-item p {
+    color: var(--muted);
+
+    font-size: 14px;
+}
+
+
+/* =========================================================
+   SKILLS
+========================================================= */
+
+.skills-grid {
+    display: grid;
+
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 45px;
+}
+
+.skill {
+    margin-bottom: 22px;
+}
+
+.skill-header {
+    display: flex;
+
+    justify-content: space-between;
+
+    font-size: 13px;
+
+    margin-bottom: 8px;
+}
+
+.skill-header span:last-child {
+    color: var(--muted);
+}
+
+.progress {
+    height: 7px;
+
+    background: #e9edef;
+
+    border-radius: 10px;
+
+    overflow: hidden;
+}
+
+.progress-bar {
+    height: 100%;
+
+    width: 0;
+
+    background: var(--teal);
+
+    border-radius: 10px;
+
+    transition: width 1.4s ease;
+}
+
+
+/* =========================================================
+   EDUCATION
+========================================================= */
+
+.education-grid {
+    display: grid;
+
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 20px;
+}
+
+.education-card {
+    background: white;
+
+    border: 1px solid var(--border);
+
+    padding: 28px;
+
+    border-radius: var(--radius);
+
+    transition: var(--transition);
+}
+
+.education-card:hover {
+    transform: translateY(-5px);
+
+    box-shadow: var(--shadow);
+}
+
+.education-year {
+    font-family: "JetBrains Mono", monospace;
+
+    color: var(--teal);
+
+    font-size: 11px;
+
+    margin-bottom: 12px;
+}
+
+.education-card h3 {
+    font-size: 20px;
+
+    margin-bottom: 8px;
+}
+
+.education-org {
+    color: var(--muted);
+
+    font-size: 13px;
+}
+
+
+/* =========================================================
+   CERTIFICATIONS
+========================================================= */
+
+.certifications {
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 10px;
+}
+
+.cert {
+    background: white;
+
+    border: 1px solid var(--border);
+
+    padding: 9px 13px;
+
+    border-radius: 8px;
+
+    font-family: "JetBrains Mono", monospace;
+
+    font-size: 11px;
 
     color: var(--muted);
 
     transition: var(--transition);
 }
 
-.lang-switch button:hover {
-    color: var(--navy);
+.cert:hover {
+    color: var(--teal);
+
+    border-color: var(--teal);
+
+    transform: translateY(-2px);
 }
 
-.lang-switch button[aria-pressed="true"] {
+
+/* =========================================================
+   CONTACT
+========================================================= */
+
+.contact {
     background: var(--navy);
-    color: var(--white);
+
+    color: white;
+
+    position: relative;
+
+    overflow: hidden;
 }
 
-.lang-switch button:focus-visible {
-    outline: 2px solid var(--teal);
-    outline-offset: -2px;
+.contact::after {
+    content: "";
+
+    position: absolute;
+
+    width: 500px;
+    height: 500px;
+
+    border-radius: 50%;
+
+    border: 1px solid rgba(255,255,255,.08);
+
+    right: -250px;
+    top: -200px;
 }
 
-/* Évite que la navbar déborde avec le bouton en plus */
-@media (min-width: 721px) and (max-width: 1000px) {
+.contact h2 {
+    color: white;
 
-    .nav-links {
-        gap: 16px;
+    max-width: 650px;
+}
+
+.contact .eyebrow {
+    color: #76c9bd;
+}
+
+.contact-description {
+    color: rgba(255,255,255,.68);
+
+    max-width: 650px;
+
+    margin-top: 20px;
+}
+
+.contact-links {
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 12px;
+
+    margin-top: 30px;
+
+    position: relative;
+    z-index: 2;
+}
+
+.contact-link {
+    display: inline-flex;
+
+    padding: 11px 17px;
+
+    border: 1px solid rgba(255,255,255,.18);
+
+    border-radius: 8px;
+
+    text-decoration: none;
+
+    color: white;
+
+    font-size: 13px;
+
+    transition: var(--transition);
+}
+
+.contact-link:hover {
+    background: white;
+
+    color: var(--navy);
+
+    transform: translateY(-3px);
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+footer {
+    background: #071827;
+
+    color: rgba(255,255,255,.55);
+
+    padding: 28px 0;
+
+    font-size: 12px;
+}
+
+.footer-inner {
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    gap: 20px;
+}
+
+.footer-name {
+    color: white;
+
+    font-family: "Playfair Display", serif;
+
+    font-size: 16px;
+}
+
+
+/* =========================================================
+   REVEAL ANIMATION
+========================================================= */
+
+.reveal {
+    opacity: 0;
+
+    transform: translateY(30px);
+
+    transition:
+        opacity .8s ease,
+        transform .8s ease;
+}
+
+.reveal.active {
+    opacity: 1;
+
+    transform: translateY(0);
+}
+
+
+/* =========================================================
+   ANIMATIONS
+========================================================= */
+
+@keyframes float {
+
+    0%,100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(25px);
     }
 }
+
+@keyframes cardFloat {
+
+    0%,100% {
+        transform: rotate(2deg) translateY(0);
+    }
+
+    50% {
+        transform: rotate(2deg) translateY(-12px);
+    }
+}
+
+@keyframes growBar {
+
+    from {
+        transform: scaleY(0);
+    }
+
+    to {
+        transform: scaleY(1);
+    }
+}
+
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width: 900px) {
+
+    .hero-grid,
+    .about-grid {
+        grid-template-columns: 1fr;
+
+        gap: 50px;
+    }
+
+    .data-visual {
+        min-height: 360px;
+
+        order: -1;
+    }
+
+    .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .stat:nth-child(2) {
+        border-right: 0;
+    }
+
+    .skills-grid,
+    .education-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+@media (max-width: 720px) {
+
+    .section {
+        padding: 80px 0;
+    }
+
+    .nav-links {
+        position: fixed;
+
+        top: 76px;
+        left: 0;
+
+        width: 100%;
+
+        padding: 25px;
+
+        background: var(--white);
+
+        flex-direction: column;
+
+        align-items: flex-start;
+
+        gap: 20px;
+
+        transform: translateY(-120%);
+
+        transition: var(--transition);
+
+        box-shadow: 0 20px 30px rgba(11,31,51,.08);
+    }
+
+    .nav-links.active {
+        transform: translateY(0);
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+
+    .hero {
+        min-height: auto;
+
+        padding-top: 130px;
+
+        padding-bottom: 80px;
+    }
+
+    .hero h1 {
+        font-size: 3rem;
+    }
+
+    .hero-description {
+        font-size: 16px;
+    }
+
+    .visual-card {
+        width: min(360px, 92vw);
+    }
+
+    .expertise-grid,
+    .projects-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .stat {
+        border-right: 0;
+
+        border-bottom: 1px solid rgba(255,255,255,.12);
+    }
+
+    .footer-inner {
+        flex-direction: column;
+
+        align-items: flex-start;
+    }
+}
+
+
+@media (max-width: 450px) {
+
+    .hero h1 {
+        font-size: 2.45rem;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+
+        align-items: stretch;
+    }
+
+    .btn {
+        width: 100%;
+    }
+
+    .visual-bottom {
+        grid-template-columns: 1fr;
+    }
+}
+
 </style>
+</head>
+
+
+<body>
+
+
+<!-- =====================================================
+     HEADER
+===================================================== -->
+
+<header id="header">
+
+    <div class="container navbar">
+
+        <a href="#accueil" class="logo">
+            Kendy <span>Philippe</span>
+        </a>
+
+        <button
+            class="menu-toggle"
+            id="menuToggle"
+            aria-label="Ouvrir le menu">
+            ☰
+        </button>
+
+        <ul class="nav-links" id="navLinks">
+
+            <li><a href="#profil">Profil</a></li>
+            <li><a href="#expertise">Expertise</a></li>
+            <li><a href="#projets">Projets</a></li>
+            <li><a href="#parcours">Parcours</a></li>
+            <li><a href="#competences">Compétences</a></li>
+            <li><a href="#formation">Formation</a></li>
+
+            <li>
+                <a href="#contact" class="nav-contact">
+                    Contact
+                </a>
+            </li>
+
+        </ul>
+
+    </div>
+
+</header>
+
+
+
+<!-- =====================================================
+     HERO
+===================================================== -->
+
+<main id="accueil">
+
+<section class="hero">
+
+    <div class="container hero-grid">
+
+        <div class="reveal">
+
+            <div class="hero-label">
+                TRAVAIL SOCIAL · PROTECTION · MEAL · DATA
+            </div>
+
+            <h1>
+                Transformer les
+                <em>données</em>
+                en décisions utiles.
+            </h1>
+
+            <p class="hero-description">
+                Travailleur social spécialisé en suivi-évaluation,
+                avec une expérience à l'intersection du terrain,
+                de la protection, de la santé publique et de
+                l'analyse des données.
+            </p>
+
+            <div class="hero-buttons">
+
+                <a href="#contact" class="btn btn-primary">
+                    Me contacter →
+                </a>
+
+                <a
+                    href="CV_Kendy_Philippe.pdf"
+                    class="btn btn-secondary"
+                    target="_blank">
+                    Télécharger mon CV
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <div class="data-visual reveal">
+
+            <div class="visual-card">
+
+                <div class="visual-top">
+
+                    <span class="visual-title">
+                        MEAL Dashboard
+                    </span>
+
+                    <span class="status">
+                        DATA · ACTIVE
+                    </span>
+
+                </div>
+
+                <div class="chart">
+
+                    <div class="bar"></div>
+                    <div class="bar"></div>
+                    <div class="bar"></div>
+                    <div class="bar"></div>
+                    <div class="bar"></div>
+                    <div class="bar"></div>
+
+                </div>
+
+                <div class="visual-bottom">
+
+                    <div class="metric">
+                        <strong>R</strong>
+                        <span>Analyse</span>
+                    </div>
+
+                    <div class="metric">
+                        <strong>BI</strong>
+                        <span>Dashboard</span>
+                    </div>
+
+                    <div class="metric">
+                        <strong>GIS</strong>
+                        <span>Cartographie</span>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     STATS
+===================================================== -->
+
+<section class="stats">
+
+    <div class="container stats-grid">
+
+        <div class="stat">
+            <div class="stat-number">MEAL</div>
+            <div class="stat-label">
+                Suivi · Évaluation · Redevabilité
+            </div>
+        </div>
+
+        <div class="stat">
+            <div class="stat-number">Data</div>
+            <div class="stat-label">
+                Analyse · Visualisation
+            </div>
+        </div>
+
+        <div class="stat">
+            <div class="stat-number">Kobo</div>
+            <div class="stat-label">
+                Collecte mobile
+            </div>
+        </div>
+
+        <div class="stat">
+            <div class="stat-number">Haïti</div>
+            <div class="stat-label">
+                Terrain · Développement
+            </div>
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     PROFIL
+===================================================== -->
+
+<section class="section" id="profil">
+
+    <div class="container">
+
+        <div class="about-grid">
+
+            <div class="about-card reveal">
+
+                <h3>
+                    Terrain + Donnée
+                </h3>
+
+                <p>
+                    Une approche qui relie la compréhension
+                    des réalités sociales à la production
+                    d'informations utiles à la décision.
+                </p>
+
+            </div>
+
+
+            <div class="about-content reveal">
+
+                <div class="eyebrow">
+                    01 — Profil
+                </div>
+
+                <h2>
+                    Une double expertise au service
+                    de l'action sociale.
+                </h2>
+
+                <p>
+                    Ma pratique se situe à l'intersection du
+                    <strong>travail social</strong>,
+                    de la <strong>protection</strong>,
+                    de la <strong>santé publique</strong>
+                    et du <strong>suivi-évaluation</strong>.
+                </p>
+
+                <p>
+                    Je développe et utilise des outils de
+                    collecte mobile, de traitement, d'analyse
+                    et de visualisation afin de transformer
+                    les données de terrain en informations
+                    exploitables.
+                </p>
+
+                <p>
+                    Mon expérience auprès de structures telles
+                    qu'<strong>UNICEF Haïti</strong>,
+                    <strong>FHADIMAC</strong> et
+                    <strong>ICDH</strong> m'a permis de
+                    travailler directement avec les populations
+                    et les équipes de programme.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     EXPERTISE
+===================================================== -->
+
+<section class="section expertise" id="expertise">
+
+    <div class="container">
+
+        <div class="section-header reveal">
+
+            <div class="eyebrow">
+                02 — Expertise
+            </div>
+
+            <h2>
+                Deux domaines,
+                une même logique d'impact.
+            </h2>
+
+            <p class="section-intro">
+                Comprendre les besoins, structurer l'information,
+                analyser les résultats et contribuer à la décision.
+            </p>
+
+        </div>
+
+
+        <div class="expertise-grid">
+
+            <article class="expertise-card reveal">
+
+                <div class="icon">
+                    01
+                </div>
+
+                <h3>
+                    Protection & intervention sociale
+                </h3>
+
+                <ul class="expertise-list">
+
+                    <li>
+                        Protection de l'enfance
+                    </li>
+
+                    <li>
+                        Gestion et suivi de cas
+                    </li>
+
+                    <li>
+                        Appui psychosocial
+                    </li>
+
+                    <li>
+                        Référencement inter-agences
+                    </li>
+
+                    <li>
+                        PSEA
+                    </li>
+
+                    <li>
+                        Engagement des adolescents et des jeunes
+                    </li>
+
+                    <li>
+                        Sensibilisation communautaire
+                    </li>
+
+                </ul>
+
+            </article>
+
+
+            <article class="expertise-card reveal">
+
+                <div class="icon">
+                    02
+                </div>
+
+                <h3>
+                    MEAL & analyse de données
+                </h3>
+
+                <ul class="expertise-list">
+
+                    <li>
+                        Conception d'outils de suivi-évaluation
+                    </li>
+
+                    <li>
+                        Échantillonnage statistique
+                    </li>
+
+                    <li>
+                        Collecte mobile avec Kobo / ODK
+                    </li>
+
+                    <li>
+                        Nettoyage et contrôle qualité
+                    </li>
+
+                    <li>
+                        Analyse avec R / SPSS / Python
+                    </li>
+
+                    <li>
+                        Power BI / DAX
+                    </li>
+
+                    <li>
+                        QGIS et visualisation des données
+                    </li>
+
+                </ul>
+
+            </article>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     PROJETS
+===================================================== -->
+
+<section class="section" id="projets">
+
+    <div class="container">
+
+        <div class="section-header reveal">
+
+            <div class="eyebrow">
+                03 — Portfolio
+            </div>
+
+            <h2>
+                Projets techniques.
+            </h2>
+
+            <p class="section-intro">
+                Quelques réalisations illustrant mes compétences
+                en statistiques, analyse de données et visualisation.
+            </p>
+
+        </div>
+
+
+        <div class="projects-grid">
+
+
+            <article class="project-card reveal">
+
+                <div class="project-number">
+                    PROJECT / 01
+                </div>
+
+                <h3>
+                    Vente informelle de médicaments à Jérémie
+                </h3>
+
+                <p>
+                    Étude exploratoire réalisée dans le cadre du cours **Analyse de données avec SPSS et MS Excel** du programme de spécialisation en Suivi et Évaluation de SIPDEC. Elle examine les facteurs socio-économiques et les comportements des ménages face à l'achat de médicaments vendus dans le circuit informel dans la commune de Jérémie, pour la période 2022-2025.
+
+L'objectif était d'identifier les facteurs associés au recours à ces médicaments et de mieux comprendre les pratiques d'achat et de consommation des ménages.
+                </p>
+
+                <div class="project-tools">
+                    <span>SPSS</span>
+                    <span>Statistiques</span>
+                    <span>Cochran</span>
+                    <span>MEAL</span>
+                </div>
+
+                <!-- Remplacer # par le véritable lien GitHub -->
+                <a
+                    href="https://github.com/kphilippe24/etude-recherche-mediaments-informels-excel-spss"
+                    class="project-link"
+                    target="_blank">
+                    Voir le projet →
+                </a>
+
+            </article>
+
+
+
+            <article class="project-card reveal">
+
+                <div class="project-number">
+                    PROJECT / 02
+                </div>
+
+                <h3>
+                    Analyse d'une enquête ménage
+                </h3>
+
+                <p>
+                    Nettoyage, traitement des valeurs manquantes,
+                    dédoublonnage, jointures, statistiques
+                    descriptives et tests du Khi-deux.
+                </p>
+
+                <div class="project-tools">
+                    <span>R</span>
+                    <span>dplyr</span>
+                    <span>ggplot2</span>
+                    <span>Data Quality</span>
+                </div>
+
+                <a
+                    href="https://github.com/kphilippe24/analyse-r-enquete-menage"
+                    class="project-link"
+                    target="_blank">
+                    Voir sur GitHub →
+                </a>
+
+            </article>
+
+
+
+            <article class="project-card reveal">
+
+                <div class="project-number">
+                    PROJECT / 03
+                </div>
+
+                <h3>
+                    Tableau de bord commercial
+                </h3>
+
+                <p>
+                    Structuration d'une base de données et création
+                    d'un tableau de bord avec indicateurs clés
+                    et visualisations.
+                </p>
+
+                <div class="project-tools">
+                    <span>Excel</span>
+                    <span>TCD</span>
+                    <span>Dashboard</span>
+                    <span>DataViz</span>
+                </div>
+
+                <!-- Remplacer # par le véritable lien du dépôt -->
+                <a
+                    href="https://github.com/kphilippe24/tableau-de-bord-excel-ventes-fichiers-Projet_Excel.xlsx"
+                    class="project-link"
+                    target="_blank">
+                    Voir le projet →
+                </a>
+
+            </article>
+
+
+
+            <article class="project-card reveal">
+
+                <div class="project-number">
+                    PROJECT / 04
+                </div>
+
+                <h3>
+                    Dashboard de suivi de patients
+                </h3>
+
+                <p>
+                    Visualisation d'indicateurs selon le sexe,
+                    l'âge, le statut clinique, le niveau
+                    d'éducation et la situation socio-économique.
+                </p>
+
+                <div class="project-tools">
+                    <span>Power BI</span>
+                    <span>DAX</span>
+                    <span>DataViz</span>
+                    <span>Santé</span>
+                </div>
+
+                <!-- Un fichier PBIX doit être hébergé correctement -->
+                <a
+                    href="https://github.com/kphilippe24/dashboard-powerbi-patients-fichiers-Projet_final_Kendy_PHILIPPE.pbix-"
+                    class="project-link"
+                    target="_blank">
+                    Voir le projet →
+                </a>
+
+            </article>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     PARCOURS
+===================================================== -->
+
+<section class="section timeline-section" id="parcours">
+
+    <div class="container">
+
+        <div class="section-header reveal">
+
+            <div class="eyebrow">
+                04 — Parcours
+            </div>
+
+            <h2>
+                Expérience de terrain.
+            </h2>
+
+        </div>
+
+
+        <div class="timeline">
+
+
+            <div class="timeline-item reveal">
+
+                <div class="timeline-dot"></div>
+
+                <div class="timeline-period">
+                    MARS 2024 — PRÉSENT
+                </div>
+
+                <h3>
+                    Travailleur social
+                </h3>
+
+                <div class="timeline-org">
+                    FHADIMAC — Jérémie, Grand'Anse
+                </div>
+
+                <p>
+                    Accompagnement psychosocial, gestion des
+                    dossiers sociaux, appui aux activités de
+                    sensibilisation et collecte de données
+                    liées aux activités du centre.
+                </p>
+
+            </div>
+
+
+
+            <div class="timeline-item reveal">
+
+                <div class="timeline-dot"></div>
+
+                <div class="timeline-period">
+                    JUIN — AOÛT 2026
+                </div>
+
+                <h3>
+                    Évaluateur — Séminaires SIPDEC
+                </h3>
+
+                <div class="timeline-org">
+                    SIPDEC
+                </div>
+
+                <p>
+                    Travail d'évaluation formative comprenant
+                    l'échantillonnage, la collecte, l'analyse
+                    des données et la formulation de recommandations.
+                </p>
+
+            </div>
+
+
+
+            <div class="timeline-item reveal">
+
+                <div class="timeline-dot"></div>
+
+                <div class="timeline-period">
+                    DÉCEMBRE 2025
+                </div>
+
+                <h3>
+                    Animateur — Recherche sur les VBG
+                </h3>
+
+                <div class="timeline-org">
+                    Brigade d'Intervention Médicale — Grand'Anse
+                </div>
+
+                <p>
+                    Animation de focus groups et réalisation
+                    d'entretiens avec des parties prenantes.
+                </p>
+
+            </div>
+
+
+
+            <div class="timeline-item reveal">
+
+                <div class="timeline-dot"></div>
+
+                <div class="timeline-period">
+                    DÉCEMBRE 2025
+                </div>
+
+                <h3>
+                    Projet académique — Gouvernance locale
+                </h3>
+
+                <div class="timeline-org">
+                    Commune de Kenscoff
+                </div>
+
+                <p>
+                    Conception d'outils de collecte et de suivi-évaluation,
+                    analyse de données et formulation de recommandations.
+                </p>
+
+            </div>
+
+
+
+            <div class="timeline-item reveal">
+
+                <div class="timeline-dot"></div>
+
+                <div class="timeline-period">
+                    DÉCEMBRE 2023 — MAI 2024
+                </div>
+
+                <h3>
+                    Stagiaire — Engagement des adolescents et des jeunes
+                </h3>
+
+                <div class="timeline-org">
+                    UNICEF Haïti
+                </div>
+
+                <p>
+                    Appui aux activités d'engagement des jeunes,
+                    conception d'outils de collecte et analyse
+                    de données.
+                </p>
+
+            </div>
+
+
+
+            <div class="timeline-item reveal">
+
+                <div class="timeline-dot"></div>
+
+                <div class="timeline-period">
+                    AVRIL — SEPTEMBRE 2023
+                </div>
+
+                <h3>
+                    Stagiaire — Agent de protection
+                </h3>
+
+                <div class="timeline-org">
+                    ICDH
+                </div>
+
+                <p>
+                    Suivi et documentation de dossiers de protection
+                    de l'enfance, référencement et reporting.
+                </p>
+
+            </div>
+
+
+
+            <div class="timeline-item reveal">
+
+                <div class="timeline-dot"></div>
+
+                <div class="timeline-period">
+                    DÉCEMBRE 2022
+                </div>
+
+                <h3>
+                    Animateur & Transcripteur
+                </h3>
+
+                <div class="timeline-org">
+                    Mercy Corps — Grand'Anse
+                </div>
+
+                <p>
+                    Collecte de données qualitatives, coordination
+                    avec les acteurs locaux et synthèse des
+                    informations issues des focus groups.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     COMPETENCES
+===================================================== -->
+
+<section class="section" id="competences">
+
+    <div class="container">
+
+        <div class="section-header reveal">
+
+            <div class="eyebrow">
+                05 — Compétences techniques
+            </div>
+
+            <h2>
+                Mon environnement de travail.
+            </h2>
+
+        </div>
+
+
+        <div class="skills-grid">
+
+            <div>
+
+                <div class="skill">
+                    <div class="skill-header">
+                        <span>R / statistiques</span>
+                        <span>Avancé</span>
+                    </div>
+
+                    <div class="progress">
+                        <div
+                            class="progress-bar"
+                            data-width="82%">
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="skill">
+                    <div class="skill-header">
+                        <span>Excel / Data Quality</span>
+                        <span>Avancé</span>
+                    </div>
+
+                    <div class="progress">
+                        <div
+                            class="progress-bar"
+                            data-width="88%">
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="skill">
+                    <div class="skill-header">
+                        <span>Power BI / DAX</span>
+                        <span>Intermédiaire</span>
+                    </div>
+
+                    <div class="progress">
+                        <div
+                            class="progress-bar"
+                            data-width="75%">
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="skill">
+                    <div class="skill-header">
+                        <span>SPSS</span>
+                        <span>Intermédiaire</span>
+                    </div>
+
+                    <div class="progress">
+                        <div
+                            class="progress-bar"
+                            data-width="70%">
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+
+            <div>
+
+                <div class="skill">
+                    <div class="skill-header">
+                        <span>KoboToolbox / ODK</span>
+                        <span>Avancé</span>
+                    </div>
+
+                    <div class="progress">
+                        <div
+                            class="progress-bar"
+                            data-width="86%">
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="skill">
+                    <div class="skill-header">
+                        <span>QGIS</span>
+                        <span>Intermédiaire</span>
+                    </div>
+
+                    <div class="progress">
+                        <div
+                            class="progress-bar"
+                            data-width="68%">
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="skill">
+                    <div class="skill-header">
+                        <span>SQL / PostgreSQL</span>
+                        <span>Intermédiaire</span>
+                    </div>
+
+                    <div class="progress">
+                        <div
+                            class="progress-bar"
+                            data-width="62%">
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="skill">
+                    <div class="skill-header">
+                        <span>Python</span>
+                        <span>En développement</span>
+                    </div>
+
+                    <div class="progress">
+                        <div
+                            class="progress-bar"
+                            data-width="50%">
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     FORMATION
+===================================================== -->
+
+<section class="section expertise" id="formation">
+
+    <div class="container">
+
+        <div class="section-header reveal">
+
+            <div class="eyebrow">
+                06 — Formation
+            </div>
+
+            <h2>
+                Formation académique.
+            </h2>
+
+        </div>
+
+
+        <div class="education-grid">
+
+
+            <article class="education-card reveal">
+
+                <div class="education-year">
+                    2025 — 2026
+                </div>
+
+                <h3>
+                    Diplôme de spécialisation
+                    en Suivi & Évaluation
+                </h3>
+
+                <div class="education-org">
+                    SIPDEC / IUS — Port-au-Prince
+                </div>
+
+            </article>
+
+
+            <article class="education-card reveal">
+
+                <div class="education-year">
+                    2016 — 2020
+                </div>
+
+                <h3>
+                    Formation en Travail social
+                </h3>
+
+                <div class="education-org">
+                    UEH / FASCH — Port-au-Prince
+                </div>
+
+            </article>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     CERTIFICATIONS
+===================================================== -->
+
+<section class="section">
+
+    <div class="container">
+
+        <div class="section-header reveal">
+
+            <div class="eyebrow">
+                07 — Certifications
+            </div>
+
+            <h2>
+                Formations complémentaires.
+            </h2>
+
+        </div>
+
+
+        <div class="certifications reveal">
+
+            <span class="cert">
+                Analyse de données avec R — SIPDEC
+            </span>
+
+            <span class="cert">
+                Power BI — SIPDEC
+            </span>
+
+            <span class="cert">
+                Social Norms & Social Change — UPenn / UNICEF
+            </span>
+
+            <span class="cert">
+                Social Work Practice — University of Michigan
+            </span>
+
+            <span class="cert">
+                PSEA — AGORA UNICEF
+            </span>
+
+            <span class="cert">
+                GBV Disclosure Response — DisasterReady
+            </span>
+
+            <span class="cert">
+                Droit international humanitaire — HLA
+            </span>
+
+            <span class="cert">
+                Genre & violences — Université de Genève
+            </span>
+
+            <span class="cert">
+                Égalité femmes-hommes — OIF
+            </span>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     CONTACT
+===================================================== -->
+
+<section class="section contact" id="contact">
+
+    <div class="container">
+
+        <div class="eyebrow">
+            08 — Contact
+        </div>
+
+        <h2>
+            Construisons des projets
+            fondés sur les données.
+        </h2>
+
+        <p class="contact-description">
+            Disponible pour des missions et collaborations
+            en suivi-évaluation, analyse de données, protection,
+            recherche sociale et projets de développement.
+        </p>
+
+
+        <div class="contact-links">
+
+            <a
+                href="mailto:kendyphilippe4@gmail.com"
+                class="contact-link">
+                Email
+            </a>
+
+            <a
+                href="tel:+50948824055"
+                class="contact-link">
+                Téléphone
+            </a>
+
+            <a
+                href="https://www.linkedin.com/in/kendy-philippe-14229818b"
+                class="contact-link"
+                target="_blank"
+                rel="noopener">
+                LinkedIn
+            </a>
+
+            <a
+                href="https://github.com/kphilippe24/kphilippe24.github.io"
+                class="contact-link"
+                target="_blank"
+                rel="noopener">
+                GitHub
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+</main>
+
+
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
+<footer>
+
+    <div class="container footer-inner">
+
+        <div class="footer-name">
+            Kendy Philippe
+        </div>
+
+        <div>
+            Travail social · MEAL · Data · Protection
+        </div>
+
+        <div>
+            © <span id="year"></span>
+        </div>
+
+    </div>
+
+</footer>
+
 
 
 <script>
-(function () {
 
-    "use strict";
+/* =========================================================
+   HEADER SCROLL
+========================================================= */
 
-    /* =====================================================
-       RÉGLAGES
-    ===================================================== */
+const header = document.getElementById("header");
 
-    // CV en anglais : mettre ici le nom du fichier quand il existera,
-    // par exemple "CV_Kendy_Philippe_EN.pdf".
-    // Tant que cette valeur est vide, le bouton garde le CV actuel.
-    var CV_EN_URL = "";
+window.addEventListener("scroll", () => {
 
-    var STORAGE_KEY  = "portfolio-lang";
-    var DEFAULT_LANG = "fr";
-
-    // Ajouter ?i18n-debug à l'adresse de la page pour lister,
-    // dans la console, les textes qui n'ont pas de traduction.
-    var DEBUG = /[?&]i18n-debug\b/.test(window.location.search);
-
-
-    /* =====================================================
-       TEXTES SIMPLES  (français → anglais)
-       La clé doit être identique au texte français de la page.
-       Si vous modifiez un texte français, modifiez aussi sa clé ici.
-    ===================================================== */
-
-    var TEXT = {
-
-        /* ---- Navigation ---- */
-        "Profil": "Profile",
-        "Projets": "Projects",
-        "Parcours": "Experience",
-        "Compétences": "Skills",
-        "Formation": "Education",
-
-        /* ---- Hero ---- */
-        "TRAVAIL SOCIAL · PROTECTION · MEAL · DATA": "SOCIAL WORK · PROTECTION · MEAL · DATA",
-        "Travailleur social spécialisé en suivi-évaluation, avec une expérience à l'intersection du terrain, de la protection, de la santé publique et de l'analyse des données.":
-            "Social worker specialized in monitoring and evaluation, with experience at the intersection of fieldwork, protection, public health and data analysis.",
-        "Me contacter →": "Contact me →",
-        "Télécharger mon CV": "Download my CV",
-        "Analyse": "Analysis",
-        "Cartographie": "Mapping",
-
-        /* ---- Bandeau de chiffres ---- */
-        "Suivi · Évaluation · Redevabilité": "Monitoring · Evaluation · Accountability",
-        "Analyse · Visualisation": "Analysis · Visualization",
-        "Collecte mobile": "Mobile data collection",
-        "Haïti": "Haiti",
-        "Terrain · Développement": "Field · Development",
-
-        /* ---- Profil ---- */
-        "Terrain + Donnée": "Field + Data",
-        "Une approche qui relie la compréhension des réalités sociales à la production d'informations utiles à la décision.":
-            "An approach that links an understanding of social realities with the production of information useful for decision-making.",
-        "01 — Profil": "01 — Profile",
-        "Une double expertise au service de l'action sociale.": "A dual expertise serving social action.",
-        "Je développe et utilise des outils de collecte mobile, de traitement, d'analyse et de visualisation afin de transformer les données de terrain en informations exploitables.":
-            "I develop and use tools for mobile data collection, processing, analysis and visualization in order to turn field data into actionable information.",
-
-        /* ---- Expertise ---- */
-        "Deux domaines, une même logique d'impact.": "Two fields, one shared logic of impact.",
-        "Comprendre les besoins, structurer l'information, analyser les résultats et contribuer à la décision.":
-            "Understanding needs, structuring information, analyzing results and contributing to decision-making.",
-
-        "Protection & intervention sociale": "Protection & social intervention",
-        "Protection de l'enfance": "Child protection",
-        "Gestion et suivi de cas": "Case management and follow-up",
-        "Appui psychosocial": "Psychosocial support",
-        "Référencement inter-agences": "Inter-agency referral",
-        "Engagement des adolescents et des jeunes": "Adolescent and youth engagement",
-        "Sensibilisation communautaire": "Community awareness-raising",
-
-        "MEAL & analyse de données": "MEAL & data analysis",
-        "Conception d'outils de suivi-évaluation": "Design of monitoring and evaluation tools",
-        "Échantillonnage statistique": "Statistical sampling",
-        "Collecte mobile avec Kobo / ODK": "Mobile data collection with Kobo / ODK",
-        "Nettoyage et contrôle qualité": "Data cleaning and quality control",
-        "Analyse avec R / SPSS / Python": "Analysis with R / SPSS / Python",
-        "QGIS et visualisation des données": "QGIS and data visualization",
-
-        /* ---- Projets ---- */
-        "Projets techniques.": "Technical projects.",
-        "Quelques réalisations illustrant mes compétences en statistiques, analyse de données et visualisation.":
-            "A selection of work illustrating my skills in statistics, data analysis and visualization.",
-
-        "Vente informelle de médicaments à Jérémie": "Informal sale of medicines in Jérémie",
-        "Statistiques": "Statistics",
-        "Voir le projet →": "View project →",
-
-        "Analyse d'une enquête ménage": "Household survey analysis",
-        "Nettoyage, traitement des valeurs manquantes, dédoublonnage, jointures, statistiques descriptives et tests du Khi-deux.":
-            "Data cleaning, handling of missing values, deduplication, joins, descriptive statistics and chi-square tests.",
-        "Voir sur GitHub →": "View on GitHub →",
-
-        "Tableau de bord commercial": "Sales dashboard",
-        "Structuration d'une base de données et création d'un tableau de bord avec indicateurs clés et visualisations.":
-            "Structuring of a database and creation of a dashboard with key indicators and visualizations.",
-        "TCD": "Pivot tables",
-
-        "Dashboard de suivi de patients": "Patient monitoring dashboard",
-        "Visualisation d'indicateurs selon le sexe, l'âge, le statut clinique, le niveau d'éducation et la situation socio-économique.":
-            "Visualization of indicators by sex, age, clinical status, education level and socio-economic situation.",
-        "Santé": "Health",
-
-        /* ---- Parcours ---- */
-        "04 — Parcours": "04 — Experience",
-        "Expérience de terrain.": "Field experience.",
-
-        "MARS 2024 — PRÉSENT": "MARCH 2024 — PRESENT",
-        "Travailleur social": "Social Worker",
-        "Accompagnement psychosocial, gestion des dossiers sociaux, appui aux activités de sensibilisation et collecte de données liées aux activités du centre.":
-            "Psychosocial support, social case file management, support for awareness-raising activities and collection of data related to the center's activities.",
-
-        "JUIN — AOÛT 2026": "JUNE — AUGUST 2026",
-        "Évaluateur — Séminaires SIPDEC": "Evaluator — SIPDEC Seminars",
-        "Travail d'évaluation formative comprenant l'échantillonnage, la collecte, l'analyse des données et la formulation de recommandations.":
-            "Formative evaluation work including sampling, data collection, data analysis and the formulation of recommendations.",
-
-        "DÉCEMBRE 2025": "DECEMBER 2025",
-        "Animateur — Recherche sur les VBG": "Facilitator — Research on GBV",
-        "Animation de focus groups et réalisation d'entretiens avec des parties prenantes.":
-            "Facilitation of focus groups and conduct of interviews with stakeholders.",
-
-        "Projet académique — Gouvernance locale": "Academic project — Local governance",
-        "Commune de Kenscoff": "Commune of Kenscoff",
-        "Conception d'outils de collecte et de suivi-évaluation, analyse de données et formulation de recommandations.":
-            "Design of data collection and monitoring and evaluation tools, data analysis and formulation of recommendations.",
-
-        "DÉCEMBRE 2023 — MAI 2024": "DECEMBER 2023 — MAY 2024",
-        "Stagiaire — Engagement des adolescents et des jeunes": "Intern — Adolescent and Youth Engagement",
-        "UNICEF Haïti": "UNICEF Haiti",
-        "Appui aux activités d'engagement des jeunes, conception d'outils de collecte et analyse de données.":
-            "Support for youth engagement activities, design of data collection tools and data analysis.",
-
-        "AVRIL — SEPTEMBRE 2023": "APRIL — SEPTEMBER 2023",
-        "Stagiaire — Agent de protection": "Intern — Protection Officer",
-        "Suivi et documentation de dossiers de protection de l'enfance, référencement et reporting.":
-            "Follow-up and documentation of child protection cases, referral and reporting.",
-
-        "DÉCEMBRE 2022": "DECEMBER 2022",
-        "Animateur & Transcripteur": "Facilitator & Transcriber",
-        "Collecte de données qualitatives, coordination avec les acteurs locaux et synthèse des informations issues des focus groups.":
-            "Qualitative data collection, coordination with local stakeholders and synthesis of information from focus groups.",
-
-        /* ---- Compétences ---- */
-        "05 — Compétences techniques": "05 — Technical skills",
-        "Mon environnement de travail.": "My work environment.",
-        "R / statistiques": "R / statistics",
-        "Avancé": "Advanced",
-        "Intermédiaire": "Intermediate",
-        "En développement": "In development",
-
-        /* ---- Formation ---- */
-        "06 — Formation": "06 — Education",
-        "Formation académique.": "Academic background.",
-        "Diplôme de spécialisation en Suivi & Évaluation": "Specialization Diploma in Monitoring & Evaluation",
-        "Formation en Travail social": "Social Work Studies",
-
-        /* ---- Certifications ---- */
-        "Formations complémentaires.": "Additional training.",
-        "Analyse de données avec R — SIPDEC": "Data Analysis with R — SIPDEC",
-        "Droit international humanitaire — HLA": "International Humanitarian Law — HLA",
-        "Genre & violences — Université de Genève": "Gender & Violence — University of Geneva",
-        "Égalité femmes-hommes — OIF": "Gender Equality — OIF",
-
-        /* ---- Contact ---- */
-        "Construisons des projets fondés sur les données.": "Let's build data-driven projects.",
-        "Disponible pour des missions et collaborations en suivi-évaluation, analyse de données, protection, recherche sociale et projets de développement.":
-            "Available for assignments and collaborations in monitoring and evaluation, data analysis, protection, social research and development projects.",
-        "Téléphone": "Phone",
-
-        /* ---- Pied de page ---- */
-        "Travail social · MEAL · Data · Protection": "Social work · MEAL · Data · Protection"
-    };
-
-
-    /* =====================================================
-       PARAGRAPHES AVEC BALISES INTERNES
-       (titre du hero, paragraphes avec <strong>, etc.)
-       Ils sont remplacés en entier via leur sélecteur CSS.
-    ===================================================== */
-
-    var HTML_RULES = [
-
-        {
-            sel: ".hero h1",
-            en: "Turning <em>data</em> into useful decisions."
-        },
-
-        {
-            sel: ".about-content p:nth-of-type(1)",
-            en: "My practice sits at the intersection of " +
-                "<strong>social work</strong>, <strong>protection</strong>, " +
-                "<strong>public health</strong> and " +
-                "<strong>monitoring and evaluation</strong>."
-        },
-
-        {
-            sel: ".about-content p:nth-of-type(3)",
-            en: "My experience with organizations such as " +
-                "<strong>UNICEF Haiti</strong>, <strong>FHADIMAC</strong> and " +
-                "<strong>ICDH</strong> has allowed me to work directly with " +
-                "populations and program teams."
-        },
-
-        {
-            sel: "#projets .projects-grid article:nth-of-type(1) p",
-            en: "Exploratory study carried out as part of the course " +
-                "<strong>Data Analysis with SPSS and MS Excel</strong> of the " +
-                "SIPDEC specialization program in Monitoring and Evaluation. " +
-                "It examines the socio-economic factors and household behaviors " +
-                "related to buying medicines sold through the informal market in " +
-                "the commune of Jérémie, for the period 2022-2025. " +
-                "The objective was to identify the factors associated with the " +
-                "use of these medicines and to better understand household " +
-                "purchasing and consumption practices."
-        }
-    ];
-
-
-    /* =====================================================
-       AUTRES ÉLÉMENTS À TRADUIRE
-    ===================================================== */
-
-    var TITLE_EN = "Kendy PHILIPPE | Social Work · MEAL · Data";
-
-    var META_EN  = "Professional portfolio of Kendy PHILIPPE — " +
-                   "social work, protection, monitoring & evaluation and data analysis.";
-
-    var MENU_LABEL_EN = "Open menu";
-
-
-    /* =====================================================
-       ÉTAT ET OUTILS
-    ===================================================== */
-
-    var current = "fr";
-    var translatedNodes = [];
-    var replacedHtml = [];
-
-    var navLinks   = document.getElementById("navLinks");
-    var menuButton = document.getElementById("menuToggle");
-    var metaDesc   = document.querySelector('meta[name="description"]');
-    var cvLink     = document.querySelector('a[href="CV_Kendy_Philippe.pdf"]');
-
-    // Valeurs françaises d'origine (pour pouvoir revenir en arrière)
-    var TITLE_FR = document.title;
-    var META_FR  = metaDesc ? metaDesc.getAttribute("content") : null;
-    var MENU_LABEL_FR = menuButton ? menuButton.getAttribute("aria-label") : null;
-    var CV_FR_URL = cvLink ? cvLink.getAttribute("href") : null;
-
-    function has(obj, key) {
-        return Object.prototype.hasOwnProperty.call(obj, key);
+    if (window.scrollY > 30) {
+        header.classList.add("scrolled");
+    } else {
+        header.classList.remove("scrolled");
     }
 
-    function normalize(text) {
-        return text.replace(/\s+/g, " ").trim();
-    }
-
-    function getSavedLang() {
-        try {
-            return window.localStorage.getItem(STORAGE_KEY);
-        } catch (e) {
-            return null;
-        }
-    }
-
-    function saveLang(lang) {
-        try {
-            window.localStorage.setItem(STORAGE_KEY, lang);
-        } catch (e) {
-            /* stockage indisponible : le choix vaut pour cette visite */
-        }
-    }
+});
 
 
-    /* =====================================================
-       FRANÇAIS → ANGLAIS
-    ===================================================== */
+/* =========================================================
+   MOBILE MENU
+========================================================= */
 
-    function toEnglish() {
+const menuToggle = document.getElementById("menuToggle");
+const navLinks = document.getElementById("navLinks");
 
-        // 1) Paragraphes avec balises internes
-        HTML_RULES.forEach(function (rule) {
+menuToggle.addEventListener("click", () => {
 
-            var el = document.querySelector(rule.sel);
-            if (!el) { return; }
+    navLinks.classList.toggle("active");
 
-            replacedHtml.push({ el: el, html: el.innerHTML });
+});
 
-            el.innerHTML = rule.en;
-            el.setAttribute("data-i18n-html", "");
-        });
 
-        // 2) Textes simples
-        var walker = document.createTreeWalker(
-            document.body,
-            NodeFilter.SHOW_TEXT,
-            {
-                acceptNode: function (node) {
+document.querySelectorAll(".nav-links a").forEach(link => {
 
-                    var parent = node.parentNode;
-                    if (!parent) { return NodeFilter.FILTER_REJECT; }
+    link.addEventListener("click", () => {
 
-                    var tag = parent.nodeName;
-                    if (tag === "SCRIPT" || tag === "STYLE" || tag === "NOSCRIPT") {
-                        return NodeFilter.FILTER_REJECT;
-                    }
+        navLinks.classList.remove("active");
 
-                    if (parent.closest &&
-                        parent.closest("[data-i18n-html], .lang-switch")) {
-                        return NodeFilter.FILTER_REJECT;
-                    }
+    });
 
-                    return NodeFilter.FILTER_ACCEPT;
+});
+
+
+/* =========================================================
+   SCROLL REVEAL
+========================================================= */
+
+const revealElements =
+    document.querySelectorAll(".reveal");
+
+const revealObserver =
+    new IntersectionObserver(
+        entries => {
+
+            entries.forEach(entry => {
+
+                if (entry.isIntersecting) {
+
+                    entry.target.classList.add("active");
+
+                    revealObserver.unobserve(entry.target);
+
                 }
-            }
+
+            });
+
+        },
+        {
+            threshold: .12
+        }
+    );
+
+
+revealElements.forEach(element => {
+
+    revealObserver.observe(element);
+
+});
+
+
+/* =========================================================
+   SKILL BARS
+========================================================= */
+
+const progressBars =
+    document.querySelectorAll(".progress-bar");
+
+const skillObserver =
+    new IntersectionObserver(
+        entries => {
+
+            entries.forEach(entry => {
+
+                if (entry.isIntersecting) {
+
+                    const bar = entry.target;
+
+                    bar.style.width =
+                        bar.dataset.width;
+
+                    skillObserver.unobserve(bar);
+
+                }
+
+            });
+
+        },
+        {
+            threshold: .4
+        }
+    );
+
+
+progressBars.forEach(bar => {
+
+    skillObserver.observe(bar);
+
+});
+/* =========================================================
+   TOUJOURS REVENIR EN HAUT AU RECHARGEMENT
+========================================================= */
+
+if ('scrollRestoration' in history) {
+    history.scrollRestoration = 'manual';
+}
+
+window.addEventListener('load', () => {
+    window.scrollTo(0, 0);
+
+    if (window.location.hash) {
+        history.replaceState(
+            null,
+            '',
+            window.location.pathname + window.location.search
         );
-
-        var nodes = [];
-        while (walker.nextNode()) { nodes.push(walker.currentNode); }
-
-        var missing = [];
-
-        nodes.forEach(function (node) {
-
-            var raw = node.nodeValue;
-            var key = normalize(raw);
-
-            if (!key) { return; }
-
-            if (has(TEXT, key)) {
-
-                var lead  = raw.match(/^\s*/)[0];
-                var trail = raw.match(/\s*$/)[0];
-
-                translatedNodes.push({ node: node, fr: raw });
-                node.nodeValue = lead + TEXT[key] + trail;
-
-            } else if (DEBUG && /[A-Za-zÀ-ÿ]{3,}/.test(key)) {
-                missing.push(key);
-            }
-        });
-
-        if (DEBUG && missing.length) {
-            console.info("[i18n] Textes sans traduction :", missing);
-        }
     }
+});
+
+/* =========================================================
+   CURRENT YEAR
+========================================================= */
+
+document.getElementById("year").textContent =
+    new Date().getFullYear();
 
 
-    /* =====================================================
-       ANGLAIS → FRANÇAIS
-    ===================================================== */
+/* =========================================================
+   SMOOTH ACTIVE NAVIGATION
+========================================================= */
 
-    function toFrench() {
+const sections =
+    document.querySelectorAll("section[id]");
 
-        translatedNodes.forEach(function (item) {
-            item.node.nodeValue = item.fr;
-        });
-        translatedNodes = [];
+const navItems =
+    document.querySelectorAll(".nav-links a");
 
-        replacedHtml.forEach(function (item) {
-            item.el.innerHTML = item.html;
-            item.el.removeAttribute("data-i18n-html");
-        });
-        replacedHtml = [];
-    }
+window.addEventListener("scroll", () => {
 
+    let current = "";
 
-    /* =====================================================
-       APPLIQUER UNE LANGUE
-    ===================================================== */
+    sections.forEach(section => {
 
-    function setLang(lang, persist) {
+        const sectionTop =
+            section.offsetTop - 120;
 
-        if (lang !== "fr" && lang !== "en") { lang = DEFAULT_LANG; }
-
-        if (lang !== current) {
-            if (lang === "en") { toEnglish(); } else { toFrench(); }
-            current = lang;
+        if (window.scrollY >= sectionTop) {
+            current = section.getAttribute("id");
         }
 
-        var isEn = (lang === "en");
+    });
 
-        document.documentElement.setAttribute("lang", lang);
-        document.title = isEn ? TITLE_EN : TITLE_FR;
+    navItems.forEach(link => {
 
-        if (metaDesc && META_FR !== null) {
-            metaDesc.setAttribute("content", isEn ? META_EN : META_FR);
+        link.style.color = "";
+
+        if (
+            link.getAttribute("href") ===
+            "#" + current
+        ) {
+            link.style.color =
+                "var(--teal)";
         }
 
-        if (menuButton && MENU_LABEL_FR !== null) {
-            menuButton.setAttribute("aria-label", isEn ? MENU_LABEL_EN : MENU_LABEL_FR);
-        }
+    });
 
-        if (cvLink && CV_FR_URL !== null) {
-            cvLink.setAttribute("href", (isEn && CV_EN_URL) ? CV_EN_URL : CV_FR_URL);
-        }
+});
 
-        document.querySelectorAll(".lang-switch button").forEach(function (btn) {
-            btn.setAttribute(
-                "aria-pressed",
-                btn.getAttribute("data-lang") === lang ? "true" : "false"
-            );
-        });
-
-        if (persist) { saveLang(lang); }
-    }
-
-
-    /* =====================================================
-       BOUTON FR | EN (navbar + menu mobile)
-    ===================================================== */
-
-    function buildSwitch() {
-
-        if (!navLinks) { return; }
-
-        var item = document.createElement("li");
-
-        item.innerHTML =
-            '<div class="lang-switch" role="group" aria-label="Langue / Language">' +
-                '<button type="button" data-lang="fr" lang="fr" title="Français" aria-pressed="true">FR</button>' +
-                '<button type="button" data-lang="en" lang="en" title="English" aria-pressed="false">EN</button>' +
-            '</div>';
-
-        // Placé juste avant le bouton « Contact » (dernier élément du menu)
-        navLinks.insertBefore(item, navLinks.lastElementChild);
-
-        item.addEventListener("click", function (event) {
-
-            var btn = event.target.closest("button[data-lang]");
-            if (!btn) { return; }
-
-            setLang(btn.getAttribute("data-lang"), true);
-
-            // Referme le menu mobile après le choix
-            navLinks.classList.remove("active");
-        });
-    }
-
-
-    /* =====================================================
-       DÉMARRAGE : français par défaut, sauf choix mémorisé
-    ===================================================== */
-
-    buildSwitch();
-    setLang(getSavedLang() === "en" ? "en" : "fr", false);
-
-})();
 </script>
+
+</body>
+</html>
